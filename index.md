@@ -39,13 +39,15 @@ The formal IS-04 specification is provided at in [this GitHub repository](https:
 
 [master](branches/master/)
 
+[pb-rename-to-stable](branches/pb-rename-to-stable/)
+
 [v1.0.x](branches/v1.0.x/)
 
 [v1.1.x](branches/v1.1.x/)
 
-[v1.2-dev](branches/v1.2-dev/)
-
 [v1.2.x](branches/v1.2.x/)
+
+[v1.3-dev](branches/v1.3-dev/)
 
 ## Tags
 
