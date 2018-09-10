@@ -44,21 +44,11 @@
 
 [v1.0.1](tags/v1.0.1/)
 
-[v1.0.2](tags/v1.0.2/)
-
-[v1.0.2_approved](tags/v1.0.2_approved/)
-
 [v1.0.2_stable](tags/v1.0.2_stable/)
 
 [v1.1](tags/v1.1/)
 
-[v1.1.1](tags/v1.1.1/)
-
-[v1.1.1_approved](tags/v1.1.1_approved/)
-
 [v1.1.1_stable](tags/v1.1.1_stable/)
-
-[v1.2](tags/v1.2/)
 
 [v1.2_spec](tags/v1.2_spec/)
 
