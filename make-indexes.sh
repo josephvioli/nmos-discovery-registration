@@ -18,51 +18,59 @@ for b_or_t in branches tags; do
         echo "Making $dirname/$INDEX"
         cd "$dir"
             echo -e "# Documentation for $dirname\n" > "$INDEX"
-            for doc in docs/[1-9]*.md; do
-                no_ext="${doc%%.md}"
-                # Spaces causing problems so rename extracted docs to use underscore
-                underscore_space_doc="${doc// /_}"
-                mv "$doc" "$underscore_space_doc"
+            if [ -d docs ]; then
+                for doc in docs/[1-9]*.md; do
+                    no_ext="${doc%%.md}"
+                    # Spaces causing problems so rename extracted docs to use underscore
+                    underscore_space_doc="${doc// /_}"
+                    mv "$doc" "$underscore_space_doc"
 
-                # Top level documents have numbers ending in '.0'
-                match_top_level='^docs/[1-9][0-9]*\.0\. '
-                if [[ "$doc" =~ $match_top_level ]]; then
-                    linktext="${no_ext#* }"
-                    echo " - [$linktext]($underscore_space_doc)" >> "$INDEX"
-                else
-                    # Removing the top-level part of lower-level link texts
-                    # that is the part up to the hyphen and following space
-                    linktext="${no_ext#* - }"
-                    echo "   - [$linktext]($underscore_space_doc)" >> "$INDEX"
-                fi
-            done
+                    # Top level documents have numbers ending in '.0' or '.0.'
+                    match_top_level='^docs/[1-9][0-9]*\.0\.? '
+                    if [[ "$doc" =~ $match_top_level ]]; then
+                        linktext="${no_ext#* }"
+                        echo " - [$linktext]($underscore_space_doc)" >> "$INDEX"
+                    else
+                        # Removing the top-level part of lower-level link texts
+                        # that is the part up to the hyphen and following space
+                        linktext="${no_ext#* - }"
+                        echo "   - [$linktext]($underscore_space_doc)" >> "$INDEX"
+                    fi
+                done
+            fi
 
-            INDEX_APIS="html-APIs/$INDEX"
-            echo -e "\n## APIs for $dirname" >> "$INDEX"
-            echo -e "# APIs for $dirname\n" > "$INDEX_APIS"
-            for api in html-APIs/*.html; do
-                no_ext="${api%%.html}"
-                linktext="${no_ext##*/}"
-                echo " - [$linktext]($api)" | tee -a "$INDEX" >> "$INDEX_APIS"
-            done
+            if [ -d html-APIs ]; then
+                INDEX_APIS="html-APIs/$INDEX"
+                echo -e "\n## APIs for $dirname" >> "$INDEX"
+                echo -e "# APIs for $dirname\n" > "$INDEX_APIS"
+                for api in html-APIs/*.html; do
+                    no_ext="${api%%.html}"
+                    linktext="${no_ext##*/}"
+                    echo " - [$linktext]($api)" | tee -a "$INDEX" >> "$INDEX_APIS"
+                done
+            fi
 
-            INDEX_SCHEMAS="html-APIs/schemas/$INDEX"
-            echo -e "\n### [JSON Schemas](html-APIs/schemas/)" >> "$INDEX"
-            echo -e "## JSON Schemas\n" > "$INDEX_SCHEMAS"
-            for schema in html-APIs/schemas/*.json; do
-                no_ext="${schema%%.json}"
-                linktext="${no_ext##*/}"
-                echo " - [$linktext](${schema##*/})" >> "$INDEX_SCHEMAS"
-            done
+            if [ -d html-APIs/schemas ]; then
+                INDEX_SCHEMAS="html-APIs/schemas/$INDEX"
+                echo -e "\n### [JSON Schemas](html-APIs/schemas/)" >> "$INDEX"
+                echo -e "## JSON Schemas\n" > "$INDEX_SCHEMAS"
+                for schema in html-APIs/schemas/*.json; do
+                    no_ext="${schema%%.json}"
+                    linktext="${no_ext##*/}"
+                    echo " - [$linktext](${schema##*/})" >> "$INDEX_SCHEMAS"
+                done
+            fi
 
-            INDEX_EXAMPLES="examples/$INDEX"
-            echo -e "\n### [Examples](examples/)" >> "$INDEX"
-            echo -e "## Examples\n" > "$INDEX_EXAMPLES"
-            for example in examples/*.json; do
-                no_ext="${example%%.json}"
-                linktext="${no_ext##*/}"
-                echo " - [$linktext](${example##*/})" >> "$INDEX_EXAMPLES"
-            done
+            if [ -d examples ]; then
+                INDEX_EXAMPLES="examples/$INDEX"
+                echo -e "\n### [Examples](examples/)" >> "$INDEX"
+                echo -e "## Examples\n" > "$INDEX_EXAMPLES"
+                for example in examples/*.json; do
+                    no_ext="${example%%.json}"
+                    linktext="${no_ext##*/}"
+                    echo " - [$linktext](${example##*/})" >> "$INDEX_EXAMPLES"
+                done
+            fi
 
             cd ..
     done
@@ -74,9 +82,14 @@ CONTENTS=index-contents.md
 
 echo "Making top level $INDEX"
 
-echo "Adding in contents of $INDEX for default release $DEFAULT_RELEASE"
-# Shameful but effective - correct the links while copying text
-sed "s:(:(tags/$DEFAULT_RELEASE/:" "tags/$DEFAULT_RELEASE/$INDEX" > "$CONTENTS"
+# Add the default links at the top - correct the links while copying text
+if [ "$DEFAULT_RELEASE" ]; then
+    echo "Adding in contents of $INDEX for default release $DEFAULT_RELEASE"
+    sed "s:(:(tags/$DEFAULT_RELEASE/:" "tags/$DEFAULT_RELEASE/$INDEX" > "$CONTENTS"
+elif [ "$DEFAULT_BRANCH" ]; then
+    echo "Adding in contents of $INDEX for default branch $DEFAULT_BRANCH"
+    sed "s:(:(branches/$DEFAULT_BRANCH/:" "branches/$DEFAULT_BRANCH/$INDEX" > "$CONTENTS" 
+fi
 
 echo -e "\n## Branches" >> "$CONTENTS"
 for dir in branches/*; do

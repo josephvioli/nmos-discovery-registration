@@ -3,8 +3,10 @@
 # URL of GitHub source repo
 REPO_ADDRESS=https://github.com/AMWA-TV/nmos-discovery-registration
 
-# The tag corresponding to this release will appear at the top of the main index
+# DEFAULT_RELEASE or DEFAULT_BRANCH sets what will appear at the top of the main index. 
+# DEFAULT_RELEASE takes priority if set and uses the tag with the same name.
 DEFAULT_RELEASE=v1.2_spec
+#DEFAULT_BRANCH=
 
 # Show branches and tags (releases) matching the following regexes
 SHOW_BRANCHES='v[0-9]*\.[0-9]*|master'

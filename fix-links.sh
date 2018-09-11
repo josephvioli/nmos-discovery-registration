@@ -15,3 +15,9 @@ for file in {branches,tags}/*/docs/*.md; do
     # Same but for reference links
     perl -ni -e '@parts = split /(\]:.*?\.md)/ ; for ($n = 1; $n < @parts; $n += 2) { $parts[$n] =~ s/%20/_/g; }; print @parts' $file
 done
+
+## Removing the unwanted "schemas/" in .html links due to raml2html v6 workaround
+# for file in {branches,tags}/*/html-APIs/*.html; do
+#     perl -pi -e 's:schemas/::g;' $file
+# done
+    
