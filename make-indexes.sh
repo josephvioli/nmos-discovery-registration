@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# TODO: Move some of the common code into functions (DRY)
+# TODO: Move some of the common/looped code into functions (DRY)
 
 shopt -s nullglob
 
+# Get default release
 . ./repo-settings.sh
 
 # Filename for index in each dir
@@ -89,6 +90,5 @@ for dir in tags/*; do
     echo -e "\n[$tag](tags/$tag/)" >>  "$CONTENTS"
 done
 echo >> "$CONTENTS"
-
 
 cat "$HEAD" "$CONTENTS" > "$INDEX"
