@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# Version for IS-04 (only) that does both RAML 0.8 and RAML 1.0
+# Modified for IS-04, which uses RAML 0.8 in old versions, 1.0 in new ones
 
-RAML2HTML_3="$PWD/node_modules/raml2html-3/bin/raml2html"
-RAML2HTML="$PWD/node_modules/raml2html/bin/raml2html"
-
-if [ ! -x $RAML2HTML ]; then
-    echo "fatal: Cannot find raml2html (maybe need to make build-tools?)"
+if [ ! -d node_modules/.bin ]; then
+    echo "fatal: Cannot find build tools (have you done 'make build-tools?')"
     exit 1
 fi
+
+PATH=$PWD/node_modules/.bin:$PATH
 
 function extract {
     checkout=$1
@@ -28,15 +27,15 @@ function extract {
                     echo "This looks like RAML 0.8"
                     for i in *.raml; do
                         echo "Generating HTML from $i..."
-                        $RAML2HTML_3 $i > "${i%%.raml}.html"
+                        raml2html-3 $i > "${i%%.raml}.html"
                     done 
                 else
                     echo "This looks like RAML 1.0 or later"
-                    ##echo "NB: including workaround for how v6+ of raml2html deals with \$ref and schemas/ dir"
+                    echo "NB: including workaround for how v6+ of raml2html deals with \$ref and schemas/ dir"
                     perl -pi.orig -e 's=("\$ref": ")(.*)(\.json)=$1schemas/$2$3=' schemas/*.json
                     for i in *.raml; do
                         echo "Generating HTML from $i..."
-                        $RAML2HTML $i > "${i%%.raml}.html"
+                        raml2html $i > "${i%%.raml}.html"
                     done
                     for i in schemas/*.json.orig; do
                         mv "$i" "${i%%.orig}"
