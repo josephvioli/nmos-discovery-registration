@@ -13,40 +13,38 @@ The formal IS-04 specification is provided at in [this GitHub repository](https:
 The links immediately below are for the _most recent approved release_ of the Specification (which may be earlier than what is shown by the default branch on the GitHub repo). Links to other releases (tags) and other branches appear later in the page.
 
 
-# Documentation for v1.2_spec
+# Documentation for v1.2.1
 
-- [Overview](tags/v1.2_spec/docs/1.0._Overview.md)
-- [APIs](tags/v1.2_spec/docs/2.0._APIs.md)
-  - [Common Keys](tags/v1.2_spec/docs/2.1._APIs_-_Common_Keys.md)
-  - [Client Side Implementation Notes](tags/v1.2_spec/docs/2.2._APIs_-_Client_Side_Implementation_Notes.md)
-  - [Server Side Implementation Notes](tags/v1.2_spec/docs/2.3._APIs_-_Server_Side_Implementation_Notes.md)
-  - [Load Balancing & Redundancy](tags/v1.2_spec/docs/2.4._APIs_-_Load_Balancing_&_Redundancy.md)
-  - [Query Parameters](tags/v1.2_spec/docs/2.5._APIs_-_Query_Parameters.md)
-- [Discovery](tags/v1.2_spec/docs/3.0._Discovery.md)
-  - [Registered Operation](tags/v1.2_spec/docs/3.1._Discovery_-_Registered_Operation.md)
-  - [Peer to Peer Operation](tags/v1.2_spec/docs/3.2._Discovery_-_Peer_to_Peer_Operation.md)
-- [Behaviour](tags/v1.2_spec/docs/4.0._Behaviour.md)
-  - [Registration](tags/v1.2_spec/docs/4.1._Behaviour_-_Registration.md)
-  - [Querying](tags/v1.2_spec/docs/4.2._Behaviour_-_Querying.md)
-- [Data Model](tags/v1.2_spec/docs/5.0._Data_Model.md)
-  - [Identifier Mapping](tags/v1.2_spec/docs/5.1._Data_Model_-_Identifier_Mapping.md)
-- [Upgrade Path](tags/v1.2_spec/docs/6.0._Upgrade_Path.md)
+- [Overview](tags/v1.2.1/docs/1.0._Overview.md)
+- [APIs](tags/v1.2.1/docs/2.0._APIs.md)
+  - [Common Keys](tags/v1.2.1/docs/2.1._APIs_-_Common_Keys.md)
+  - [Client Side Implementation Notes](tags/v1.2.1/docs/2.2._APIs_-_Client_Side_Implementation_Notes.md)
+  - [Server Side Implementation Notes](tags/v1.2.1/docs/2.3._APIs_-_Server_Side_Implementation_Notes.md)
+  - [Load Balancing & Redundancy](tags/v1.2.1/docs/2.4._APIs_-_Load_Balancing_&_Redundancy.md)
+  - [Query Parameters](tags/v1.2.1/docs/2.5._APIs_-_Query_Parameters.md)
+- [Discovery](tags/v1.2.1/docs/3.0._Discovery.md)
+  - [Registered Operation](tags/v1.2.1/docs/3.1._Discovery_-_Registered_Operation.md)
+  - [Peer to Peer Operation](tags/v1.2.1/docs/3.2._Discovery_-_Peer_to_Peer_Operation.md)
+- [Behaviour](tags/v1.2.1/docs/4.0._Behaviour.md)
+  - [Registration](tags/v1.2.1/docs/4.1._Behaviour_-_Registration.md)
+  - [Querying](tags/v1.2.1/docs/4.2._Behaviour_-_Querying.md)
+- [Data Model](tags/v1.2.1/docs/5.0._Data_Model.md)
+  - [Identifier Mapping](tags/v1.2.1/docs/5.1._Data_Model_-_Identifier_Mapping.md)
+- [Upgrade Path](tags/v1.2.1/docs/6.0._Upgrade_Path.md)
 
-## APIs for v1.2_spec
+## APIs for v1.2.1
 
-- [NodeAPI](tags/v1.2_spec/html-APIs/NodeAPI.html)
-- [QueryAPI](tags/v1.2_spec/html-APIs/QueryAPI.html)
-- [RegistrationAPI](tags/v1.2_spec/html-APIs/RegistrationAPI.html)
+- [NodeAPI](tags/v1.2.1/html-APIs/NodeAPI.html)
+- [QueryAPI](tags/v1.2.1/html-APIs/QueryAPI.html)
+- [RegistrationAPI](tags/v1.2.1/html-APIs/RegistrationAPI.html)
 
-### [JSON Schemas](tags/v1.2_spec/html-APIs/schemas/)
+### [JSON Schemas](tags/v1.2.1/html-APIs/schemas/)
 
 
-### [Examples](tags/v1.2_spec/examples/)
+### [Examples](tags/v1.2.1/examples/)
 
 
 ## Branches
-
-[master](branches/master/)
 
 [v1.0.x](branches/v1.0.x/)
 
@@ -64,8 +62,14 @@ The links immediately below are for the _most recent approved release_ of the Sp
 
 [v1.0.2_stable](tags/v1.0.2_stable/)
 
+[v1.0.3](tags/v1.0.3/)
+
 [v1.1](tags/v1.1/)
 
 [v1.1.1_stable](tags/v1.1.1_stable/)
+
+[v1.1.2](tags/v1.1.2/)
+
+[v1.2.1](tags/v1.2.1/)
 
 [v1.2_spec](tags/v1.2_spec/)
