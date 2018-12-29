@@ -30,10 +30,20 @@
         <div class="header" id="myHeader">
           <a href="{{ site.baseurl }}/">HOME</a>
           <a href="{{ site.baseurl }}/{{ site.default_tree }}">DOCS</a>
-          <a href="{{ site.baseurl }}/{{ site.default_tree }}/html-APIs">APIS</a>
-          <a href="{{ site.baseurl }}/{{ site.default_tree }}/html-APIs/schemas">SCHEMAS</a>
-          <a href="{{ site.baseurl }}/{{ site.default_tree }}/examples">EXAMPLES</a>
-          <a href="https://github.com/AMWA-TV/nmos">GITHUB</a>
+          <span class="dropdown">SPEC...
+            <div class="dropdown-content">
+              <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/html-APIs">APIS</a></p>
+              <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/html-APIs/schemas">SCHEMAS</a></p>
+              <p><a href="{{ site.baseurl }}/{{ site.default_tree }}/examples">EXAMPLES</a></p>
+            </div>
+          </span>
+          <span class="dropdown">VERSIONS...
+            <div class="dropdown-content">
+              <p><a href="{{ site.baseurl }}/tags">RELEASES</a></p>
+              <p><a href="{{ site.baseurl }}/branches">BRANCHES</a></p>
+            </div>
+          </span>
+          <a href="{{ site.github.repository_url }}">GITHUB</a>
           <a href="https://github.com/AMWA-TV/nmos/wiki">WIKI</a>
           <a href="https://github.com/AMWA-TV/nmos/wiki/FAQ">FAQs</a>
           <span class="dropdown">MORE...
@@ -43,7 +53,7 @@
               <p><a href="https://amwa-tv.github.io/nmos-device-connection-management">IS-05</a></p>
               <p><a href="https://amwa-tv.github.io/nmos-network-control">IS-06</a></p>
               <p><a href="https://amwa-tv.github.io/nmos-event-tally">IS-07</a></p>
-              <p><a href="https://amwa-tv.github.io/parameter-registers">Parameter Registers</a></p>
+              <p><a href="https://amwa-tv.github.io/nmos-parameter-registers">Parameter Registers</a></p>
               <p><a href="https://amwa-tv.github.io/nmos-grouping">Grouping</a></p>
               <p><a href="https://amwa-tv.github.io/nmos-audio-channel-mapping">Audio Channel Mapping</a></p>
               <p><a href="https://amwa-tv.github.io/nmos-api-security">API Security</a></p>
