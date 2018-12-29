@@ -1,2 +1,9 @@
 theme: jekyll-theme-primer
+
+# GitHub project name
 baseurl: /nmos-discovery-registration
+
+# Selects what appears in header links. Start with "branches/" or "tags/"
+# Recommended: keep consistent with what is in repo-settings.sh
+# TODO: automate that! 
+default_tree: tags/v1.2.1

@@ -334,7 +334,7 @@
         ]
     }
 }
-</code></pre></div></div><div class="tab-pane" id="resource_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>The expected response for an update operation on an existing registered resource</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em>required (string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/v1.1/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+</code></pre></div></div><div class="tab-pane" id="resource_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>The expected response for an update operation on an existing registered resource</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em>required (string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Returning a registered resource from the Registration API",
@@ -409,7 +409,7 @@
         }
     ]
 }
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>The expected response for a create operation performed for a previously unregistered resource</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em>required (string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/v1.1/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><p>The expected response for a create operation performed for a previously unregistered resource</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em>required (string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Returning a registered resource from the Registration API",

@@ -49,7 +49,8 @@ for b_or_t in branches tags; do
                 for api in html-APIs/*.html; do
                     no_ext="${api%%.html}"
                     linktext="${no_ext##*/}"
-                    echo "- [$linktext]($api)" | tee -a "$INDEX" >> "$INDEX_APIS"
+                    echo "- [$linktext](${api##*/})" >> "$INDEX_APIS"
+                    echo "- [$linktext]($api)" >> "$INDEX"
                 done
             fi
 
