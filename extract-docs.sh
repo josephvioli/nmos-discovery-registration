@@ -63,7 +63,7 @@ function extract {
 }
 
 # Find out which branches and tags will be shown
-. ./repo-settings.sh
+. ./get-config.sh
 
 mkdir branches
 for branch in $(cd source-repo; git branch -r | sed 's:origin/::' | grep -v HEAD | grep -v gh-pages); do

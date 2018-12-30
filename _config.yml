@@ -1,9 +1,12 @@
+# Don't change this
 theme: jekyll-theme-primer
 
-# GitHub project name
+# GitHub project
 baseurl: /nmos-discovery-registration
 
-# Selects what appears in header links. Start with "branches/" or "tags/"
-# Recommended: keep consistent with what is in repo-settings.sh
-# TODO: automate that! 
-default_tree: tags/v1.2.1
+# Which relase or branch appears in header links and on the home page
+default_tree: tags/v1.2.1 # alternatively e.g. branches/v1.2.x
+
+# Regex patterns of tags (releases) and branches to show
+show_tags: v[0-9]*\.[0-9]*
+show_branches: v[0-9]*\.[0-9]*

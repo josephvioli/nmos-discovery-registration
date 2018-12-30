@@ -4,8 +4,8 @@
 
 shopt -s nullglob
 
-# Get default release
-. ./repo-settings.sh
+# Set variables from _config.yml
+. ./get-config.sh
 
 # Text in this file will appear at the start of the top-level index
 INTRO=intro.md
@@ -87,12 +87,9 @@ cat "$INTRO" > "$INDEX"
 echo >> "$INDEX"
 
 # Add the default links at the top - correct the links while copying text
-if [ "$DEFAULT_RELEASE" ]; then
-    echo "Adding in contents of $INDEX for default release $DEFAULT_RELEASE"
-    sed "s:(:(tags/$DEFAULT_RELEASE/:" "tags/$DEFAULT_RELEASE/$INDEX" >> "$INDEX"
-elif [ "$DEFAULT_BRANCH" ]; then
-    echo "Adding in contents of $INDEX for default branch $DEFAULT_BRANCH"
-    sed "s:(:(branches/$DEFAULT_BRANCH/:" "branches/$DEFAULT_BRANCH/$INDEX" >> "$INDEX" 
+if [ "$DEFAULT_TREE" ]; then
+    echo "Adding in contents of $INDEX for default tree $DEFAULT_TREE"
+    sed "s:(:($DEFAULT_TREE/:" "$DEFAULT_TREE/$INDEX" >> "$INDEX"
 fi
 
 # TODO: DRY on the following...
