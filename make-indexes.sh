@@ -61,7 +61,7 @@ for b_or_t in branches tags; do
             if [ -d html-APIs/schemas ]; then
                 INDEX_SCHEMAS="html-APIs/schemas/$INDEX"
                 echo -e "\n### [JSON Schemas](html-APIs/schemas/)\n" >> "$INDEX"
-                echo -e "## JSON Schemas\n" > "$INDEX_SCHEMAS"
+                echo -e "# JSON Schemas for $dirname\n" > "$INDEX_SCHEMAS"
                 for schema in html-APIs/schemas/*.json; do
                     no_ext="${schema%%.json}"
                     linktext="${no_ext##*/}"
@@ -72,7 +72,7 @@ for b_or_t in branches tags; do
             if [ -d examples ]; then
                 INDEX_EXAMPLES="examples/$INDEX"
                 echo -e "\n### [Examples](examples/)\n" >> "$INDEX"
-                echo -e "## Examples\n" > "$INDEX_EXAMPLES"
+                echo -e "# Examples for $dirname\n" > "$INDEX_EXAMPLES"
                 for example in examples/*.json; do
                     no_ext="${example%%.json}"
                     linktext="${no_ext##*/}"
