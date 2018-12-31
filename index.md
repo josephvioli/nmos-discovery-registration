@@ -12,7 +12,6 @@ The formal IS-04 specification is provided at in [this GitHub repository](https:
 
 The links immediately below, and the links in the header bar, are for the _most recent approved release_ of the Specification (which may be earlier than what is shown by the default branch on the GitHub repo). Links to [other releases (tags)](tags/) and [other branches](branches/) appear later in the page, or from the header.
 
-
 # Documentation for v1.2.1
 
 - [Overview](tags/v1.2.1/docs/1.0._Overview.md)
