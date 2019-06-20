@@ -170,7 +170,7 @@ pre code {
 .required {
   color: #f00;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Registration API documentation <small>version v1.3</small></h1><p>http://example.api.com/x-nmos/registration/{version}</p><ul><li><strong>version</strong>: <em><span class="required">required</span>(v1.3)</em></li></ul><h3 id="overview"><a href="#overview">Overview</a></h3><p>The Registration API is exposed by NMOS discovery Nodes. It is used to publish data to the distributed registry, which can then be queried via the Query API. In smaller deployments where no distributed registry is available, the Registration API is not used and discovery responsibilities fall to individual Nodes which choose to implement Peer to Peer specification. The Registration API is a Write Only API.</p><h3 id="dns_sd_advertisement"><a href="#dns_sd_advertisement">DNS-SD Advertisement</a></h3><p>The preferred method of Registration API advertisement is via unicast DNS. Registration APIs MUST additionally be capable of producing an mDNS advertisement of the type _nmos-register._tcp. This MAY be disabled via a user-configurable method.</p><p>Registration APIs supporting versions &#39;v1.2&#39; and below MUST additionally be capable of producing an mDNS advertisement of type _nmos-registration._tcp. This MAY be disabled via a user-configurable method. <em>note: RFC6763 Section 7.2 specifies that the maximum service name length for an mDNS advertisement is 16 characters when including the leading underscore, but "_nmos-registration" is 18 characters.</em></p><p>The IP address and port of the Registration API MUST be identified via the DNS-SD advertisement, with the full HTTP path then being resolved via the standard NMOS API path documentation.</p><p>Multiple DNS-SD advertisements for the same API are permitted where the API is exposed via multiple ports and/or protocols.</p><h3 id="dns_sd_txt_records"><a href="#dns_sd_txt_records">DNS-SD TXT Records</a></h3><p><strong>api_proto</strong></p><p>The DNS-SD advertisement MUST be accompanied by a TXT record of name &#39;api_proto&#39; with a value of either &#39;http&#39; or &#39;https&#39; dependent on the protocol in use by the Registration API web server.</p><p><strong>api_ver</strong></p><p>The DNS-SD advertisement MUST be accompanied by a TXT record of name &#39;api_ver&#39;. The value of this TXT record is a comma separated list of API versions supported by the server. For example: &#39;v1.0,v1.1,v2.0&#39;. There should be no whitespace between commas, and versions should be listed in ascending order.</p><p><strong>pri</strong></p><p>The DNS-SD advertisement MUST include a TXT record with key &#39;pri&#39; and an integer value. Servers MAY additionally represent a matching priority via the DNS-SD SRV record &#39;priority&#39; and &#39;weight&#39; as defined in RFC 2782. The TXT record should be used in favour to the SRV priority and weight where these values differ in order to overcome issues in the Bonjour and Avahi implementations. Values 0 to 99 correspond to an active NMOS Registration API (zero being the highest priority). Values 100+ are reserved for development work to avoid colliding with a live system.</p><h3 id="versioning"><a href="#versioning">Versioning</a></h3><p>A Registration API may support multiple API versions at one time, provided data exposed from each of these versioned endpoints matches the schema for that API version. A Node registering with a Registration API should do so using only one version at a time, which should be the highest version which both the Node and the Registration API support. See the [APIs](../docs/2.0. APIs.md) and [Upgrade Path](../docs/6.0. Upgrade Path.md) documentation for more details.</p></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Base</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of paths available from this API</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of paths available from this API</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Registration API documentation <small>version v1.3</small></h1><p>http://example.api.com/x-nmos/registration/{version}</p><ul><li><strong>version</strong>: <em><span class="required">required</span>(v1.3)</em></li></ul><h3 id="overview"><a href="#overview">Overview</a></h3><p>The Registration API is exposed by NMOS discovery Nodes. It is used to publish data to the distributed registry, which can then be queried via the Query API. In smaller deployments where no distributed registry is available, the Registration API is not used and discovery responsibilities fall to individual Nodes which choose to implement Peer to Peer specification. The Registration API is a Write Only API.</p><h3 id="further_documentation"><a href="#further_documentation">Further Documentation</a></h3><p>Further normative documentation covering the behaviour of this API is contained in the <a href="../docs">docs</a> folder of this repository.</p></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Base</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of paths available from this API</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of paths available from this API</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "description": "Describes the Registration API base resource",
@@ -488,7 +488,34 @@ pre code {
         }
     ]
 }
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Returned when the POST request is incorrectly formatted or missing mandatory attributes</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Returned when the POST request is incorrectly formatted, missing mandatory attributes or breaches another condition which a Node is unlikely to be able to automatically correct.</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the resource already exists in the registry at a different API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
@@ -516,6 +543,33 @@ pre code {
   }
 }
 </code></pre></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_resource__resourcetype___resourceid_"><span class="parent">/resource</span>/{resourceType}/{resourceId}</a> <span class="methods"><a href="#resource__resourcetype___resourceid__options"><span class="badge badge_options">options</span></a> <a href="#resource__resourcetype___resourceid__delete"><span class="badge badge_delete">delete</span></a> <a href="#resource__resourcetype___resourceid__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_resource__resourcetype___resourceid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#resource__resourcetype___resourceid__options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#resource__resourcetype___resourceid__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a registered resource</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#resource__resourcetype___resourceid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Show a registered resource (for debug use only)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="resource__resourcetype___resourceid__options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent">/resource</span>/{resourceType}/{resourceId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><ul class="nav nav-tabs"><li class="active"><a href="#resource__resourcetype___resourceid__options_request" data-toggle="tab">Request</a></li><li><a href="#resource__resourcetype___resourceid__options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resource__resourcetype___resourceid__options_request"><h3>URI Parameters</h3><ul><li><strong>resourceType</strong>: <em><span class="required">required</span>(one of nodes, devices, sources, flows, senders, receivers)</em></li><li><strong>resourceId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="resource__resourcetype___resourceid__options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="resource__resourcetype___resourceid__delete"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_delete">delete</span> <span class="parent">/resource</span>/{resourceType}/{resourceId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Delete a registered resource</p></div><ul class="nav nav-tabs"><li class="active"><a href="#resource__resourcetype___resourceid__delete_request" data-toggle="tab">Request</a></li><li><a href="#resource__resourcetype___resourceid__delete_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="resource__resourcetype___resourceid__delete_request"><h3>URI Parameters</h3><ul><li><strong>resourceType</strong>: <em><span class="required">required</span>(one of nodes, devices, sources, flows, senders, receivers)</em></li><li><strong>resourceId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="resource__resourcetype___resourceid__delete_response"><h2>HTTP status code <a href="http://httpstatus.es/204" target="_blank">204</a></h2><p>The expected response, indicating &#39;No Content&#39; following the DELETE</p><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Returned when the requested resource does not exist</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the resource exists in the registry at a different API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
@@ -644,6 +698,33 @@ pre code {
     }
   }
 }
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the resource exists in the registry at a different API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/resource/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
 </code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="health_nodes__nodeid_" class="panel-title">Node health</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_health_nodes__nodeid_"><span class="parent"></span>/health/nodes/{nodeId}</a> <span class="methods"><a href="#health_nodes__nodeid__options"><span class="badge badge_options">options</span></a> <a href="#health_nodes__nodeid__post"><span class="badge badge_post">post</span></a> <a href="#health_nodes__nodeid__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_health_nodes__nodeid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#health_nodes__nodeid__options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#health_nodes__nodeid__post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Update Node health</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#health_nodes__nodeid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Show a Node&#39;s health (for debug use only)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="health_nodes__nodeid__options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent"></span>/health/nodes/{nodeId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><ul class="nav nav-tabs"><li class="active"><a href="#health_nodes__nodeid__options_request" data-toggle="tab">Request</a></li><li><a href="#health_nodes__nodeid__options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="health_nodes__nodeid__options_request"><h3>URI Parameters</h3><ul><li><strong>nodeId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="health_nodes__nodeid__options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="health_nodes__nodeid__post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/health/nodes/{nodeId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Update Node health</p></div><ul class="nav nav-tabs"><li class="active"><a href="#health_nodes__nodeid__post_request" data-toggle="tab">Request</a></li><li><a href="#health_nodes__nodeid__post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="health_nodes__nodeid__post_request"><h3>URI Parameters</h3><ul><li><strong>nodeId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="health_nodes__nodeid__post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -690,6 +771,33 @@ pre code {
     }
   }
 }
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Node exists in the registry but at a different API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/health/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
 </code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="health_nodes__nodeid__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/health/nodes/{nodeId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Show a Node&#39;s health (for debug use only)</p></div><ul class="nav nav-tabs"><li class="active"><a href="#health_nodes__nodeid__get_request" data-toggle="tab">Request</a></li><li><a href="#health_nodes__nodeid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="health_nodes__nodeid__get_request"><h3>URI Parameters</h3><ul><li><strong>nodeId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="health_nodes__nodeid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
@@ -710,6 +818,33 @@ pre code {
     "health": "1441974485"
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Returned when the requested Node does not exist or has been garbage collected</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Node exists in the registry but at a different API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/registration/{version}/health/nodes/3b8be755-08ff-452b-b217-c9151eb21193/</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the standard error response which is returned with HTTP codes 400 and above",

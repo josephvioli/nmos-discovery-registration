@@ -50,6 +50,8 @@ The documenation and API links immediately below, and the links in the page head
 
 [v1.1.x](branches/v1.1.x/)
 
+[v1.2.1-cmp](branches/v1.2.1-cmp/)
+
 [v1.2.x](branches/v1.2.x/)
 
 [v1.3-dev](branches/v1.3-dev/)

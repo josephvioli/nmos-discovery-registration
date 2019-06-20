@@ -170,7 +170,7 @@ pre code {
 .required {
   color: #f00;
 }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Node API documentation <small>version v1.3</small></h1><p>http://example.api.com/x-nmos/node/{version}</p><ul><li><strong>version</strong>: <em><span class="required">required</span>(v1.3)</em></li></ul><h3 id="overview"><a href="#overview">Overview</a></h3><p>The Node API is exposed by each NMOS Node in a system, regardless of whether it is possible for that Node to provide NMOS resources such as Flows, Sources etc. Data exposed by the Node API is used to populate the (distributed) registry via the Registration API. In smaller deployments the Node API is fetched from directly as required by Nodes which implement the Peer to Peer specification.</p><h3 id="dns_sd_advertisement"><a href="#dns_sd_advertisement">DNS-SD Advertisement</a></h3><p>Node APIs MAY produce an mDNS advertisement of the type _nmos-node._tcp in order to support peer to peer operation. This SHOULD NOT be advertised when a Registration API is present on the network, or when peer to peer operation is disabled.</p><p>The IP address and port of the Node API MUST be identified via the DNS-SD advertisement, with the full HTTP path then being resolved via the standard NMOS API path documentation.</p><p>Multiple DNS-SD advertisements for the same API are permitted where the API is exposed via multiple ports and/or protocols.</p><h3 id="dns_sd_txt_records"><a href="#dns_sd_txt_records">DNS-SD TXT Records</a></h3><p><strong>api_proto</strong></p><p>The DNS-SD advertisement MUST be accompanied by a TXT record of name &#39;api_proto&#39; with a value of either &#39;http&#39; or &#39;https&#39; (lower-case) dependent on the protocol in use by the Node API web server.</p><p><strong>api_ver</strong></p><p>The DNS-SD advertisement MUST be accompanied by a TXT record of name &#39;api_ver&#39;. The value of this TXT record is a comma separated list of API versions supported by the server. For example: &#39;v1.0,v1.1,v2.0&#39;. There should be no whitespace between commas, and versions should be listed in ascending order.</p><p><strong>ver_</strong></p><p>When a Node is operating in peer to peer mode it MUST additionally advertise the following mDNS TXT records as part of its Node advertisement. If a Node is successfully registered with a Registration API it MUST withdraw advertisements of these TXT records. There is no requirement to register these TXT records with a unicast DNS service.</p><table class="table"><thead><tr><th><strong>TXT Record Name</strong></th><th><strong>Corresponding Node API Resource</strong></th></tr></thead><tbody><tr><td>ver_slf</td><td>self</td></tr><tr><td>ver_src</td><td>sources</td></tr><tr><td>ver_flw</td><td>flows</td></tr><tr><td>ver_dvc</td><td>devices</td></tr><tr><td>ver_snd</td><td>senders</td></tr><tr><td>ver_rcv</td><td>receivers</td></tr></tbody></table><p>The value of each of the above should be an unsigned 8-bit integer initialised to &#39;0&#39;. This integer MUST be incremented and mDNS TXT record updated whenever a change is made to the corresponding HTTP API resource on the Node. The integer must wrap back to a value of &#39;0&#39; after reaching a maximum value of &#39;255&#39; (MAX_UINT8_T).</p><p>For example, the &#39;ver_src&#39; TXT record must be created when the Node first advertises itself via mDNS. If the data held within the HTTP resource for /sources is added to, removed from or edited, then the &#39;ver_src&#39; text record must be modified (value incremented).</p><h3 id="versioning"><a href="#versioning">Versioning</a></h3><p>A Node API may support multiple API versions at one time, provided data exposed from each of these versioned endpoints matches the schema for that API version. See the [APIs](../docs/2.0. APIs.md) and [Upgrade Path](../docs/6.0. Upgrade Path.md) documentation for more details.</p><h3 id="receiver_subscriptions"><a href="#receiver_subscriptions">Receiver Subscriptions</a></h3><p>This method is deprecated, but SHOULD be supported alongside any other connection mechanisms up to and including v1.2. From v1.3 Nodes MAY choose to return a 501 response from this endpoint as opposed to implementing it.</p><p>Please see the NMOS Connection API specification for the current methods for creating connections between Senders and Receivers.</p><p>A PUT request to /receivers/{receiverId}/target will modify which Sender a Receiver is subscribed to.</p><p>In order to &#39;subscribe&#39; a Receiver to a Sender, a PUT request should be made to this resource containing a full Sender object. In order to &#39;unsubscribe&#39; a Receiver from a Sender, an empty object &#39;{}&#39; should be used in this PUT request. In both cases the target resource should respond with a 202 code (accepted) on success, and a response body matching the request body.</p><p>The Receiver&#39;s subscription object contains a &#39;sender_id&#39; attribute which must be updated once a Receiver has successfully requested, parsed and actioned a change to the manifest_href is it connected to.</p></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Base</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of paths available from this API</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of paths available from this API</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Node API documentation <small>version v1.3</small></h1><p>http://example.api.com/x-nmos/node/{version}</p><ul><li><strong>version</strong>: <em><span class="required">required</span>(v1.3)</em></li></ul><h3 id="overview"><a href="#overview">Overview</a></h3><p>The Node API is exposed by each NMOS Node in a system, regardless of whether it is possible for that Node to provide NMOS resources such as Flows, Sources etc. Data exposed by the Node API is used to populate the (distributed) registry via the Registration API. In smaller deployments the Node API is fetched from directly as required by Nodes which implement the Peer to Peer specification.</p><h3 id="further_documentation"><a href="#further_documentation">Further Documentation</a></h3><p>Further normative documentation covering the behaviour of this API is contained in the <a href="../docs">docs</a> folder of this repository.</p></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">Base</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List of paths available from this API</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/</h4></div><div class="modal-body"><div class="alert alert-info"><p>List of paths available from this API</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
   "description": "Describes the Node API base resource",
@@ -265,6 +265,11 @@ pre code {
                     "type": "string",
                     "description": "Protocol supported by this instance of the Node API",
                     "enum": ["http", "https"]
+                  },
+                  "authorization": {
+                    "type": "boolean",
+                    "description": "This endpoint requires authorization",
+                    "default": false
                   }
                 }
               }
@@ -291,6 +296,11 @@ pre code {
                 "type": "string",
                 "description": "URN identifying the type of service",
                 "format": "uri"
+              },
+              "authorization": {
+                "type": "boolean",
+                "description": "This endpoint requires authorization",
+                "default": false
               }
             }
           }
@@ -607,6 +617,40 @@ pre code {
         "id": "3ca37fce-c0cf-42a6-86ad-43635a53b5bb",
         "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
         "clock_name": null
+    },
+    {
+        "description": "IS-07 Temperature Readings",
+        "tags": {
+            "host": [
+                "host1"
+            ]
+        },
+        "format": "urn:x-nmos:format:data",
+        "event_type": "number/temperature/*",
+        "caps": {},
+        "version": "1453880605:374934072",
+        "parents": [],
+        "label": "IS-07 Temperature Readings",
+        "id": "33e28c6f-d5ab-4ae5-b00d-f1cccab29af4",
+        "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
+        "clock_name": "clk0"
+    },
+    {
+        "description": "IS-07 Button",
+        "tags": {
+            "host": [
+                "host1"
+            ]
+        },
+        "format": "urn:x-nmos:format:data",
+        "event_type": "boolean",
+        "caps": {},
+        "version": "1453880605:374934072",
+        "parents": [],
+        "label": "IS-07 Button",
+        "id": "c8d27a1d-d124-4d06-bc43-312fd36f7db1",
+        "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
+        "clock_name": "clk0"
     }
 ]
 </code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_sources__sourceid_"><span class="parent">/sources</span>/{sourceId}</a> <span class="methods"><a href="#sources__sourceid__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_sources__sourceid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#sources__sourceid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a single Source</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="sources__sourceid__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/sources</span>/{sourceId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a single Source</p></div><ul class="nav nav-tabs"><li class="active"><a href="#sources__sourceid__get_request" data-toggle="tab">Request</a></li><li><a href="#sources__sourceid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="sources__sourceid__get_request"><h3>URI Parameters</h3><ul><li><strong>sourceId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="sources__sourceid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
@@ -616,7 +660,8 @@ pre code {
   "title": "Source resource",
   "oneOf": [
     { "$ref": "schemas/source_generic.json" },
-    { "$ref": "schemas/source_audio.json" }
+    { "$ref": "schemas/source_audio.json" },
+    { "$ref": "schemas/source_data.json" }
   ]
 }
 </code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
@@ -733,6 +778,48 @@ pre code {
         "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
         "id": "4857f747-96cf-4ed7-8f4b-9497199f1f25",
         "media_type": "video/SMPTE2022-6"
+    },
+    {
+        "description": "IS-07 Temperature Readings (C)",
+        "tags": {},
+        "format": "urn:x-nmos:format:data",
+        "event_type": "number/temperature/C",
+        "caps": {},
+        "version": "1453880605:374934072",
+        "parents": [],
+        "label": "IS-07 Temperature Readings (C)",
+        "id": "6327c381-1239-41d1-b314-efc719600e26",
+        "source_id": "33e28c6f-d5ab-4ae5-b00d-f1cccab29af4",
+        "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
+        "media_type": "application/json"
+    },
+    {
+        "description": "IS-07 Temperature Readings (F)",
+        "tags": {},
+        "format": "urn:x-nmos:format:data",
+        "event_type": "number/temperature/F",
+        "caps": {},
+        "version": "1453880605:374934072",
+        "parents": [],
+        "label": "IS-07 Temperature Readings (F)",
+        "id": "6327c381-1239-41d1-b314-efc719600e26",
+        "source_id": "33e28c6f-d5ab-4ae5-b00d-f1cccab29af4",
+        "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
+        "media_type": "application/json"
+    },
+    {
+        "description": "IS-07 Button",
+        "tags": {},
+        "format": "urn:x-nmos:format:data",
+        "event_type": "boolean",
+        "caps": {},
+        "version": "1453880605:374934072",
+        "parents": [],
+        "label": "IS-07 Button",
+        "id": "fa6258b9-2826-4a0d-81d0-7da9edbc405f",
+        "source_id": "c8d27a1d-d124-4d06-bc43-312fd36f7db1",
+        "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
+        "media_type": "application/json"
     }
 ]
 </code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_flows__flowid_"><span class="parent">/flows</span>/{flowId}</a> <span class="methods"><a href="#flows__flowid__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_flows__flowid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#flows__flowid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a single Flow</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="flows__flowid__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/flows</span>/{flowId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a single Flow</p></div><ul class="nav nav-tabs"><li class="active"><a href="#flows__flowid__get_request" data-toggle="tab">Request</a></li><li><a href="#flows__flowid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="flows__flowid__get_request"><h3>URI Parameters</h3><ul><li><strong>flowId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="flows__flowid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
@@ -747,6 +834,7 @@ pre code {
     { "$ref": "schemas/flow_audio_coded.json" },
     { "$ref": "schemas/flow_data.json" },
     { "$ref": "schemas/flow_sdianc_data.json" },
+    { "$ref": "schemas/flow_json_data.json" },
     { "$ref": "schemas/flow_mux.json" }
   ]
 }
@@ -917,7 +1005,7 @@ pre code {
           "format": "uri"
         },
         "node_id": {
-          "description": "Globally unique identifier for the Node which initially created the Device",
+          "description": "Globally unique identifier for the Node which initially created the Device. This attribute is used to ensure referential integrity by registry implementations.",
           "type": "string",
           "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
         },
@@ -953,6 +1041,11 @@ pre code {
                 "type": "string",
                 "description": "URN identifying the control format",
                 "format": "uri"
+              },
+              "authorization": {
+                "type": "boolean",
+                "description": "This endpoint requires authorization",
+                "default": false
               }
             }
           }
@@ -1092,24 +1185,24 @@ pre code {
           "format": "uri"
         },
         "device_id": {
-          "description": "Device ID which this Sender forms part of",
+          "description": "Device ID which this Sender forms part of. This attribute is used to ensure referential integrity by registry implementations.",
           "type": "string",
           "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
         },
         "manifest_href": {
-          "description": "HTTP URL to a file describing how to connect to the Sender (SDP for RTP). The Sender&#39;s &#39;version&#39; attribute should be updated if the contents of this file are modified. This URL may return an HTTP 404 where the &#39;active&#39; parameter in the &#39;subscription&#39; object is present and set to false (v1.2+ only).",
-          "type": "string",
+          "description": "HTTP(S) accessible URL to a file describing how to connect to the Sender.",
+          "type": ["string", "null"],
           "format": "uri"
         },
         "interface_bindings": {
-          "description": "Binding of Sender egress ports to interfaces on the parent Node. Should contain a single network interface unless a redundancy mechanism such as ST.2022-7 is in use, in which case each &#39;leg&#39; should have its matching interface listed. Where the redundancy mechanism sends more than one copy of the stream via the same interface, that interface should be listed a corresponding number of times.",
+          "description": "Binding of Sender egress ports to interfaces on the parent Node.",
           "type": "array",
           "items": {
             "type":"string"
           }
         },
         "subscription": {
-          "description": "Object containing the &#39;receiver_id&#39; currently subscribed to (unicast only). Receiver_id should be null on initialisation, or when connected to a non-NMOS unicast Receiver.",
+          "description": "Object containing the &#39;receiver_id&#39; currently subscribed to (unicast only).",
           "type": "object",
           "required": ["receiver_id", "active"],
           "properties": {
@@ -1121,7 +1214,7 @@ pre code {
             },
             "active": {
               "type": "boolean",
-              "description": "Sender is enabled and configured to stream data to a single Receiver (unicast), or to the network via multicast or a pull-based mechanism",
+              "description": "Sender is enabled and configured to send data",
               "default": false
             }
           }
@@ -1209,6 +1302,32 @@ pre code {
         "interface_bindings":[
           "eth0",
           "eth1"
+        ],
+        "device_id": "05017e08-b329-45f9-a566-a3f99cc11e4d"
+    },
+    {
+        "description": "",
+        "format": "urn:x-nmos:format:data",
+        "tags": {},
+        "caps": {
+            "media_types": [
+                "application/json"
+            ],
+            "event_types": [
+                "number/temperature/*",
+                "boolean"
+            ]
+        },
+        "subscription": {
+            "sender_id": null,
+            "active": false
+        },
+        "version": "1441704532:450093308",
+        "label": "IS-07 Mixed RTPRx",
+        "id": "9503a7ab-cc49-4b6a-a5a3-d0d0ca5c9671",
+        "transport": "urn:x-nmos:transport:mqtt",
+        "interface_bindings":[
+          "eth0"
         ],
         "device_id": "05017e08-b329-45f9-a566-a3f99cc11e4d"
     }
@@ -1360,24 +1479,24 @@ pre code {
           "format": "uri"
         },
         "device_id": {
-          "description": "Device ID which this Sender forms part of",
+          "description": "Device ID which this Sender forms part of. This attribute is used to ensure referential integrity by registry implementations.",
           "type": "string",
           "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
         },
         "manifest_href": {
-          "description": "HTTP URL to a file describing how to connect to the Sender (SDP for RTP). The Sender&#39;s &#39;version&#39; attribute should be updated if the contents of this file are modified. This URL may return an HTTP 404 where the &#39;active&#39; parameter in the &#39;subscription&#39; object is present and set to false (v1.2+ only).",
-          "type": "string",
+          "description": "HTTP(S) accessible URL to a file describing how to connect to the Sender.",
+          "type": ["string", "null"],
           "format": "uri"
         },
         "interface_bindings": {
-          "description": "Binding of Sender egress ports to interfaces on the parent Node. Should contain a single network interface unless a redundancy mechanism such as ST.2022-7 is in use, in which case each &#39;leg&#39; should have its matching interface listed. Where the redundancy mechanism sends more than one copy of the stream via the same interface, that interface should be listed a corresponding number of times.",
+          "description": "Binding of Sender egress ports to interfaces on the parent Node.",
           "type": "array",
           "items": {
             "type":"string"
           }
         },
         "subscription": {
-          "description": "Object containing the &#39;receiver_id&#39; currently subscribed to (unicast only). Receiver_id should be null on initialisation, or when connected to a non-NMOS unicast Receiver.",
+          "description": "Object containing the &#39;receiver_id&#39; currently subscribed to (unicast only).",
           "type": "object",
           "required": ["receiver_id", "active"],
           "properties": {
@@ -1389,7 +1508,7 @@ pre code {
             },
             "active": {
               "type": "boolean",
-              "description": "Sender is enabled and configured to stream data to a single Receiver (unicast), or to the network via multicast or a pull-based mechanism",
+              "description": "Sender is enabled and configured to send data",
               "default": false
             }
           }

@@ -15,6 +15,7 @@
 - [Behaviour](4.0._Behaviour.md)
   - [Registration](4.1._Behaviour_-_Registration.md)
   - [Querying](4.2._Behaviour_-_Querying.md)
+  - [Nodes](4.3._Behaviour_-_Nodes.md)
 - [Data Model](5.0._Data_Model.md)
   - [Identifier Mapping](5.1._Data_Model_-_Identifier_Mapping.md)
 - [Upgrade Path](6.0._Upgrade_Path.md)
