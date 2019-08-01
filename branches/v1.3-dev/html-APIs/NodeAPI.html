@@ -707,6 +707,33 @@ pre code {
     }
   }
 }
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Source ID exists at a higher API version, and the resource cannot be conformed to the requested API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/node/{version}/sources/4569cea2-ab63-4f97-8dd1-bad4669ea5e4</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
 </code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="flows" class="panel-title">Flows</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_flows"><span class="parent"></span>/flows</a> <span class="methods"><a href="#flows_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_flows" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#flows_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List Flows</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="flows_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/flows</h4></div><div class="modal-body"><div class="alert alert-info"><p>List Flows</p></div><ul class="nav nav-tabs"><li class="active"><a href="#flows_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="flows_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
@@ -875,6 +902,33 @@ pre code {
     ]
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Returned when the requested Flow ID does not exist</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Flow ID exists at a higher API version, and the resource cannot be conformed to the requested API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/node/{version}/flows/5fbec3b1-1b0f-417d-9059-8b94a47197ed</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
@@ -1106,6 +1160,33 @@ pre code {
     }
   }
 }
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Device ID exists at a higher API version, and the resource cannot be conformed to the requested API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/node/{version}/devices/67c25159-ce25-4000-a66c-f31fff890265</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
 </code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="senders" class="panel-title">Senders</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_senders"><span class="parent"></span>/senders</a> <span class="methods"><a href="#senders_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_senders" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#senders_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List Senders</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="senders_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/senders</h4></div><div class="modal-body"><div class="alert alert-info"><p>List Senders</p></div><ul class="nav nav-tabs"><li class="active"><a href="#senders_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="senders_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
@@ -1270,6 +1351,33 @@ pre code {
     }
   }
 }
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Sender ID exists at a higher API version, and the resource cannot be conformed to the requested API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/node/{version}/senders/d7aa5a30-681d-4e72-92fb-f0ba0f6f4c3e</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
 </code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="receivers" class="panel-title">Receivers</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_receivers"><span class="parent"></span>/receivers</a> <span class="methods"><a href="#receivers_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_receivers" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#receivers_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List Receivers</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="receivers_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/receivers</h4></div><div class="modal-body"><div class="alert alert-info"><p>List Receivers</p></div><ul class="nav nav-tabs"><li class="active"><a href="#receivers_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="receivers_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "array",
@@ -1394,7 +1502,34 @@ pre code {
     }
   }
 }
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_receivers__receiverid__target"><span class="parent">/receivers/{receiverId}</span>/target</a> <span class="methods"><a href="#receivers__receiverid__target_options"><span class="badge badge_options">options</span></a> <a href="#receivers__receiverid__target_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel_receivers__receiverid__target" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#receivers__receiverid__target_options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#receivers__receiverid__target_put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Request a change to a Receiver&#39;s subscription (deprecated)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="receivers__receiverid__target_options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent">/receivers/{receiverId}</span>/target</h4></div><div class="modal-body"><div class="alert alert-info"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><ul class="nav nav-tabs"><li class="active"><a href="#receivers__receiverid__target_options_request" data-toggle="tab">Request</a></li><li><a href="#receivers__receiverid__target_options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="receivers__receiverid__target_options_request"><h3>URI Parameters</h3><ul><li><strong>receiverId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="receivers__receiverid__target_options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><h2>HTTP status code <a href="http://httpstatus.es/501" target="_blank">501</a></h2></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="receivers__receiverid__target_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/receivers/{receiverId}</span>/target</h4></div><div class="modal-body"><div class="alert alert-info"><p>Request a change to a Receiver&#39;s subscription (deprecated)</p></div><ul class="nav nav-tabs"><li class="active"><a href="#receivers__receiverid__target_put_request" data-toggle="tab">Request</a></li><li><a href="#receivers__receiverid__target_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="receivers__receiverid__target_put_request"><h3>URI Parameters</h3><ul><li><strong>receiverId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Receiver ID exists at a higher API version, and the resource cannot be conformed to the requested API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/node/{version}/receivers/1eb53d65-ac83-441c-86f6-9b27df30ef0c</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
+</code></pre></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_receivers__receiverid__target"><span class="parent">/receivers/{receiverId}</span>/target</a> <span class="methods"><a href="#receivers__receiverid__target_options"><span class="badge badge_options">options</span></a> <a href="#receivers__receiverid__target_put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel_receivers__receiverid__target" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#receivers__receiverid__target_options'" class="list-group-item"><span class="badge badge_options">options</span><div class="method_description"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#receivers__receiverid__target_put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Request a change to a Receiver&#39;s subscription (deprecated)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="receivers__receiverid__target_options"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_options">options</span> <span class="parent">/receivers/{receiverId}</span>/target</h4></div><div class="modal-body"><div class="alert alert-info"><p>A pre-flight check generally used for Cross-Origin Resource Sharing (CORS) purposes</p></div><ul class="nav nav-tabs"><li class="active"><a href="#receivers__receiverid__target_options_request" data-toggle="tab">Request</a></li><li><a href="#receivers__receiverid__target_options_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="receivers__receiverid__target_options_request"><h3>URI Parameters</h3><ul><li><strong>receiverId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="receivers__receiverid__target_options_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="receivers__receiverid__target_put"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/receivers/{receiverId}</span>/target</h4></div><div class="modal-body"><div class="alert alert-info"><p>Request a change to a Receiver&#39;s subscription (deprecated)</p></div><ul class="nav nav-tabs"><li class="active"><a href="#receivers__receiverid__target_put_request" data-toggle="tab">Request</a></li><li><a href="#receivers__receiverid__target_put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="receivers__receiverid__target_put_request"><h3>URI Parameters</h3><ul><li><strong>receiverId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the possible requests to a Node&#39;s Receiver target resource",
@@ -1565,6 +1700,33 @@ pre code {
   }
 }
 </code></pre><h2>HTTP status code <a href="http://httpstatus.es/404" target="_blank">404</a></h2><p>Returned when the requested Receiver ID does not exist</p><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+  "title": "Error response",
+  "required": [
+    "code",
+    "error",
+    "debug"
+  ],
+  "properties": {
+    "code": {
+      "description": "HTTP error code",
+      "type": "integer",
+      "minimum": 400,
+      "maximum": 599
+    },
+    "error": {
+      "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+      "type": "string"
+    },
+    "debug": {
+      "description": "Debug information which may assist a programmer working with the API",
+      "type": ["null", "string"]
+    }
+  }
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/409" target="_blank">409</a></h2><p>Returned when the requested Receiver ID exists at a higher API version, and the resource cannot be conformed to the requested API version. The correct API version is identified via the Location header.</p><h3>Headers</h3><ul><li><strong>Location</strong>: <em><span class="required">required</span>(string)</em><p><strong>Example</strong>:</p><div class="examples"><pre><code>/x-nmos/node/{version}/receivers/1eb53d65-ac83-441c-86f6-9b27df30ef0c/target</code></pre></div></li></ul><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: json</p><p><strong>Content</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
