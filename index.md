@@ -13,35 +13,36 @@ The formal IS-04 specification is provided at in [this GitHub repository](https:
 The documenation and API links immediately below, and the links in the page heading, are for the _most recent approved release_ of the Specification (which may be earlier than what is shown by the default branch on the GitHub repo). Links to [other releases (tags)](tags/) and [other branches](branches/) appear later in the page, or under "VERSIONS..." in the page heading.
 
 
-## Documentation for v1.2.1
+## Documentation for v1.3
 
-- [Overview](tags/v1.2.1/docs/1.0._Overview.md)
-- [APIs](tags/v1.2.1/docs/2.0._APIs.md)
-  - [Common Keys](tags/v1.2.1/docs/2.1._APIs_-_Common_Keys.md)
-  - [Client Side Implementation Notes](tags/v1.2.1/docs/2.2._APIs_-_Client_Side_Implementation_Notes.md)
-  - [Server Side Implementation Notes](tags/v1.2.1/docs/2.3._APIs_-_Server_Side_Implementation_Notes.md)
-  - [Load Balancing & Redundancy](tags/v1.2.1/docs/2.4._APIs_-_Load_Balancing_&_Redundancy.md)
-  - [Query Parameters](tags/v1.2.1/docs/2.5._APIs_-_Query_Parameters.md)
-- [Discovery](tags/v1.2.1/docs/3.0._Discovery.md)
-  - [Registered Operation](tags/v1.2.1/docs/3.1._Discovery_-_Registered_Operation.md)
-  - [Peer to Peer Operation](tags/v1.2.1/docs/3.2._Discovery_-_Peer_to_Peer_Operation.md)
-- [Behaviour](tags/v1.2.1/docs/4.0._Behaviour.md)
-  - [Registration](tags/v1.2.1/docs/4.1._Behaviour_-_Registration.md)
-  - [Querying](tags/v1.2.1/docs/4.2._Behaviour_-_Querying.md)
-- [Data Model](tags/v1.2.1/docs/5.0._Data_Model.md)
-  - [Identifier Mapping](tags/v1.2.1/docs/5.1._Data_Model_-_Identifier_Mapping.md)
-- [Upgrade Path](tags/v1.2.1/docs/6.0._Upgrade_Path.md)
+- [Overview](tags/v1.3/docs/1.0._Overview.md)
+- [APIs](tags/v1.3/docs/2.0._APIs.md)
+  - [Common Keys](tags/v1.3/docs/2.1._APIs_-_Common_Keys.md)
+  - [Client Side Implementation Notes](tags/v1.3/docs/2.2._APIs_-_Client_Side_Implementation_Notes.md)
+  - [Server Side Implementation Notes](tags/v1.3/docs/2.3._APIs_-_Server_Side_Implementation_Notes.md)
+  - [Load Balancing & Redundancy](tags/v1.3/docs/2.4._APIs_-_Load_Balancing_&_Redundancy.md)
+  - [Query Parameters](tags/v1.3/docs/2.5._APIs_-_Query_Parameters.md)
+- [Discovery](tags/v1.3/docs/3.0._Discovery.md)
+  - [Registered Operation](tags/v1.3/docs/3.1._Discovery_-_Registered_Operation.md)
+  - [Peer to Peer Operation](tags/v1.3/docs/3.2._Discovery_-_Peer_to_Peer_Operation.md)
+- [Behaviour](tags/v1.3/docs/4.0._Behaviour.md)
+  - [Registration](tags/v1.3/docs/4.1._Behaviour_-_Registration.md)
+  - [Querying](tags/v1.3/docs/4.2._Behaviour_-_Querying.md)
+  - [Nodes](tags/v1.3/docs/4.3._Behaviour_-_Nodes.md)
+- [Data Model](tags/v1.3/docs/5.0._Data_Model.md)
+  - [Identifier Mapping](tags/v1.3/docs/5.1._Data_Model_-_Identifier_Mapping.md)
+- [Upgrade Path](tags/v1.3/docs/6.0._Upgrade_Path.md)
 
-## APIs for v1.2.1
+## APIs for v1.3
 
-- [NodeAPI](tags/v1.2.1/html-APIs/NodeAPI.html)
-- [QueryAPI](tags/v1.2.1/html-APIs/QueryAPI.html)
-- [RegistrationAPI](tags/v1.2.1/html-APIs/RegistrationAPI.html)
+- [NodeAPI](tags/v1.3/html-APIs/NodeAPI.html)
+- [QueryAPI](tags/v1.3/html-APIs/QueryAPI.html)
+- [RegistrationAPI](tags/v1.3/html-APIs/RegistrationAPI.html)
 
-### [JSON Schemas](tags/v1.2.1/html-APIs/schemas/)
+### [JSON Schemas](tags/v1.3/html-APIs/schemas/)
 
 
-### [Examples](tags/v1.2.1/examples/)
+### [Examples](tags/v1.3/examples/)
 
 
 ## Branches
@@ -50,11 +51,9 @@ The documenation and API links immediately below, and the links in the page head
 
 [v1.1.x](branches/v1.1.x/)
 
-[v1.2.1-cmp](branches/v1.2.1-cmp/)
-
 [v1.2.x](branches/v1.2.x/)
 
-[v1.3-dev](branches/v1.3-dev/)
+[v1.3.x](branches/v1.3.x/)
 
 ## Tags (Releases)
 
@@ -75,3 +74,5 @@ The documenation and API links immediately below, and the links in the page head
 [v1.2](tags/v1.2/)
 
 [v1.2.1](tags/v1.2.1/)
+
+[v1.3](tags/v1.3/)

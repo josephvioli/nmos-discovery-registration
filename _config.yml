@@ -4,8 +4,8 @@ theme: jekyll-theme-primer
 # GitHub project
 baseurl: /nmos-discovery-registration
 
-# Which relase or branch appears in header links and on the home page
-default_tree: tags/v1.2.1 # alternatively e.g. branches/v1.2.x
+# Which release or branch appears in header links and on the home page
+default_tree: tags/v1.3 # alternatively e.g. branches/v1.2.x
 
 # Regex patterns of tags (releases) and branches to show
 show_tags: v[0-9]*\.[0-9]*
