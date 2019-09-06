@@ -71,8 +71,12 @@ The documenation and API links immediately below, and the links in the page head
 
 [v1.1.2](tags/v1.1.2/)
 
+[v1.1.3](tags/v1.1.3/)
+
 [v1.2](tags/v1.2/)
 
 [v1.2.1](tags/v1.2.1/)
+
+[v1.2.2](tags/v1.2.2/)
 
 [v1.3](tags/v1.3/)
