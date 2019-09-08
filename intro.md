@@ -1,5 +1,3 @@
-# AMWA IS-04 NMOS Discovery and Registration Specification (Stable)
-
 IS-04 is an AMWA NMOS Specification for Discovery and Registration of networked media resources.
 
 It has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initative.
