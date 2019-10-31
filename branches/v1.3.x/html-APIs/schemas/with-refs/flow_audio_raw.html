@@ -1,0 +1,65 @@
+---
+layout: default
+title: Schema flow_audio_raw.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema flow_audio_raw.json</h2>
+<p>
+    <a href="../../schemas/resolved/flow_audio_raw.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes a raw audio Flow",
+  "title": "Raw Audio Flow resource",
+  "allOf": [
+    { "$ref": "flow_audio.json" },
+    {
+      "type": "object",
+      "required": [
+        "media_type",
+        "bit_depth"
+      ],
+      "properties": {
+        "media_type": {
+          "description": "Subclassification of the format using IANA assigned media types",
+          "type": "string",
+          "anyOf": [
+            {
+              "enum": [
+                "audio/L24",
+                "audio/L20",
+                "audio/L16",
+                "audio/L8"
+              ]
+            },
+            {
+              "pattern": "^audio\\/[^\\s\\/]+$"
+            }
+          ]
+        },
+        "bit_depth" : {
+          "description" : "Bit depth of the audio samples",
+          "type" : "integer"
+        }
+      }
+    }
+  ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

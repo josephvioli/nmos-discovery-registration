@@ -1,0 +1,32 @@
+---
+layout: default
+title: Example queryapi-subscriptionid-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example queryapi-subscriptionid-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "max_update_rate_ms": 100,
+    "resource_path": "/nodes",
+    "params": {},
+    "persist": false,
+    "secure": false,
+    "ws_href": "ws://172.29.80.52:8870/ws/?uid=7c903667-7113-4a8f-8865-1c63f9070a9e",
+    "id": "7c903667-7113-4a8f-8865-1c63f9070a9e"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

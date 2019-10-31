@@ -1,0 +1,38 @@
+---
+layout: default
+title: Schema receiver.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema receiver.json</h2>
+<p>
+    <a href="../../schemas/resolved/receiver.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes a Receiver",
+  "title": "Receiver resource",
+  "oneOf": [
+    { "$ref": "receiver_video.json" },
+    { "$ref": "receiver_audio.json" },
+    { "$ref": "receiver_data.json" },
+    { "$ref": "receiver_mux.json" }
+  ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

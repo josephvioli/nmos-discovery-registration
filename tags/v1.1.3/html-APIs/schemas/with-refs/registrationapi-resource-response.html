@@ -1,0 +1,40 @@
+---
+layout: default
+title: Schema registrationapi-resource-response.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema registrationapi-resource-response.json</h2>
+<p>
+    <a href="../../schemas/resolved/registrationapi-resource-response.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Returning a registered resource from the Registration API",
+  "title": "Registered resource",
+  "oneOf": [
+    {"$ref": "node.json"},
+    {"$ref": "device.json"},
+    {"$ref": "source.json"},
+    {"$ref": "flow.json"},
+    {"$ref": "sender.json"},
+    {"$ref": "receiver.json"}
+  ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

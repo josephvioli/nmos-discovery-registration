@@ -1,0 +1,53 @@
+---
+layout: default
+title: Example registrationapi-v1.0-resource-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example registrationapi-v1.0-resource-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "version": "1441973902:879053935",
+    "hostname": "host1",
+    "label": "host1",
+    "href": "http://172.29.80.65:12345/",
+    "services": [
+        {
+            "href": "http://172.29.80.65:12345/x-manufacturer/pipelinemanager/",
+            "type": "urn:x-manufacturer:service:pipelinemanager"
+        },
+        {
+            "href": "http://172.29.80.65:12345/x-manufacturer/status/",
+            "type": "urn:x-manufacturer:service:status"
+        },
+        {
+            "href": "http://172.29.80.65:12345/x-manufacturer/tally/",
+            "type": "urn:x-manufacturer:service:tally"
+        },
+        {
+            "href": "http://172.29.80.65:12345/x-manufacturer/mdnsbridge/",
+            "type": "urn:x-manufacturer:service:mdnsbridge"
+        },
+        {
+            "href": "http://172.29.80.65:12345/x-manufacturer/storequery/",
+            "type": "urn:x-manufacturer:service:storequery"
+        }
+    ],
+    "caps": {},
+    "id": "3b8be755-08ff-452b-b217-c9151eb21193"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

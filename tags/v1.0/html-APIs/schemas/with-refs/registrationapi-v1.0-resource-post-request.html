@@ -1,0 +1,55 @@
+---
+layout: default
+title: Schema registrationapi-v1.0-resource-post-request.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema registrationapi-v1.0-resource-post-request.json</h2>
+<p>
+    <a href="../../schemas/resolved/registrationapi-v1.0-resource-post-request.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Register a new resource or update an existing resource",
+  "title": "Resource registration",
+  "required": [
+    "type",
+    "data"
+  ],
+  "properties": {
+    "type": {
+      "description": "Singular form of the resource type to be registered (e.g. node, source, flow etc)",
+      "type": "string",
+      "enum": ["node", "device", "sender", "receiver", "source", "flow"]
+    },
+    "data": {
+      "description": "Object containing the full representation of the Node, Source, Flow, Device etc.",
+      "type": "object",
+      "anyOf": [
+        {"$ref": "node.json"},
+        {"$ref": "device.json"},
+        {"$ref": "source.json"},
+        {"$ref": "flow.json"},
+        {"$ref": "sender.json"},
+        {"$ref": "receiver.json"}
+      ]
+    }
+  }
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

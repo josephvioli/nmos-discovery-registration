@@ -1,0 +1,48 @@
+---
+layout: default
+title: Example nodeapi-v1.1-deviceid-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example nodeapi-v1.1-deviceid-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "receivers": [],
+    "label": "pipeline 1 default device",
+    "description": "pipeline 1 default device",
+    "tags": {},
+    "version": "1441703338:962976113",
+    "id": "67c25159-ce25-4000-a66c-f31fff890265",
+    "type": "urn:x-nmos:device:pipeline",
+    "senders": [],
+    "node_id": "3b8be755-08ff-452b-b217-c9151eb21193",
+    "controls": [
+        {
+            "type": "urn:x-manufacturer:control:generic",
+            "href": "ws://182.54.54.75:223"
+        },
+        {
+            "type": "urn:x-manufacturer:control:generic",
+            "href": "http://134.24.64.22/x-manufacturer/control/"
+        },
+        {
+            "type": "urn:x-manufacturer:control:legacy",
+            "href": "telnet://120.43.64.3:8080"
+        }
+    ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

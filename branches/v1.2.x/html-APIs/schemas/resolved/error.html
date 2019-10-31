@@ -1,0 +1,56 @@
+---
+layout: default
+title: Schema error.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema error.json</h2>
+<p>
+    <a href="../../schemas/with-refs/error.html">Show referenced schemas with $ref</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "Describes the standard error response which is returned with HTTP codes 400 and above",
+    "properties": {
+        "code": {
+            "description": "HTTP error code",
+            "maximum": 599,
+            "minimum": 400,
+            "type": "integer"
+        },
+        "debug": {
+            "description": "Debug information which may assist a programmer working with the API",
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "error": {
+            "description": "Human readable message which is suitable for user interface display, and helpful to the user",
+            "type": "string"
+        }
+    },
+    "required": [
+        "code",
+        "error",
+        "debug"
+    ],
+    "title": "Error response",
+    "type": "object"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

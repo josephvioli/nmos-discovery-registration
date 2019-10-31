@@ -1,0 +1,33 @@
+---
+layout: default
+title: Example nodeapi-v1.0-flowid-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example nodeapi-v1.0-flowid-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "description": "Test Card",
+    "tags": {},
+    "format": "urn:x-nmos:format:video",
+    "label": "Test Card",
+    "version": "1441704616:587121295",
+    "parents": [],
+    "source_id": "02c46999-d532-4c52-905f-2e368a2af6cb",
+    "id": "5fbec3b1-1b0f-417d-9059-8b94a47197ed"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

@@ -1,0 +1,45 @@
+---
+layout: default
+title: Example queryapi-sourceid-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example queryapi-sourceid-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "description": "Capture Card Source Video",
+    "format": "urn:x-nmos:format:video",
+    "tags": {
+        "SourceDeviceType": [
+            "HD Camera"
+        ],
+        "host": [
+            "host1"
+        ],
+        "Location": [
+            "Location 1"
+        ]
+    },
+    "caps": {},
+    "version": "1441722516:851371645",
+    "parents": [],
+    "label": "CaptureCardSourceVideo",
+    "id": "c23c6a65-8e91-4f6c-a484-046363dbca29",
+    "device_id": "65fa8c20-890e-4b86-87b2-cfd9df91b7f8",
+    "clock_name": "clk1"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

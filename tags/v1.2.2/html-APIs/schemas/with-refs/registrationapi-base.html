@@ -1,0 +1,42 @@
+---
+layout: default
+title: Schema registrationapi-base.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema registrationapi-base.json</h2>
+<p>
+    <a href="../../schemas/resolved/registrationapi-base.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "description": "Describes the Registration API base resource",
+  "title": "Registration API base resource",
+  "items": {
+    "type": "string",
+    "enum": [
+      "resource/",
+      "health/"
+    ],
+    "minItems": 2,
+    "maxItems": 2,
+    "uniqueItems": true
+  }
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

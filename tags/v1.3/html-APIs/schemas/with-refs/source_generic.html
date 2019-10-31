@@ -1,0 +1,52 @@
+---
+layout: default
+title: Schema source_generic.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema source_generic.json</h2>
+<p>
+    <a href="../../schemas/resolved/source_generic.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes a generic Source",
+  "title": "Generic Source resource",
+  "allOf": [
+    { "$ref": "source_core.json" },
+    {
+      "type": "object",
+      "required": [
+        "format"
+      ],
+      "properties": {
+        "format": {
+          "description": "Format of the data coming from the Source as a URN",
+          "type": "string",
+          "enum": [
+            "urn:x-nmos:format:video",
+            "urn:x-nmos:format:mux"
+          ],
+          "format": "uri"
+        }
+      }
+    }
+  ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

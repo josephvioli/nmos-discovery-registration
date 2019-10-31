@@ -1,0 +1,34 @@
+---
+layout: default
+title: Example nodeapi-v1.1-senderid-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example nodeapi-v1.1-senderid-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "description": "Test Card",
+    "label": "Test Card",
+    "version": "1441704616:890020555",
+    "manifest_href": "http://172.29.80.65:12345/x-nmos/node/v1.1/self/pipelinemanager/run/pipeline/3/pipel/ipp_rtptxfefa/misc/sdp/stream.sdp",
+    "flow_id": "5fbec3b1-1b0f-417d-9059-8b94a47197ed",
+    "id": "d7aa5a30-681d-4e72-92fb-f0ba0f6f4c3e",
+    "transport": "urn:x-nmos:transport:rtp.mcast",
+    "device_id": "9126cc2f-4c26-4c9b-a6cd-93c4381c9be5",
+    "tags": {}
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

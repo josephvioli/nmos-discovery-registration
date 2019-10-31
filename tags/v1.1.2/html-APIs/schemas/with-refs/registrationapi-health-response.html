@@ -1,0 +1,42 @@
+---
+layout: default
+title: Schema registrationapi-health-response.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema registrationapi-health-response.json</h2>
+<p>
+    <a href="../../schemas/resolved/registrationapi-health-response.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Response to a request to update a resource's health",
+  "title": "Heartbeat response",
+  "required": [
+    "health"
+  ],
+  "properties": {
+    "health": {
+      "description": "Timestamp indicating the time in seconds at which the server recorded the heartbeat",
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    }
+  }
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

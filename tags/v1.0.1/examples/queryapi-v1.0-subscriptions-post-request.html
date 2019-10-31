@@ -1,0 +1,31 @@
+---
+layout: default
+title: Example queryapi-v1.0-subscriptions-post-request.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example queryapi-v1.0-subscriptions-post-request.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "max_update_rate_ms": 100, 
+    "resource_path": "/nodes", 
+    "params": {
+        "label": "host1"
+    }, 
+    "persist": false
+} 
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

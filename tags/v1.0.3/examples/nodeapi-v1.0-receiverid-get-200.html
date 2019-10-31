@@ -1,0 +1,37 @@
+---
+layout: default
+title: Example nodeapi-v1.0-receiverid-get-200.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Example nodeapi-v1.0-receiverid-get-200.json</h2>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "description": "",
+    "format": "urn:x-nmos:format:video",
+    "tags": {},
+    "caps": {},
+    "subscription": {
+        "sender_id": "2683ad14-642f-459d-a169-ef91c76cec6b"
+    },
+    "version": "1441704532:450093308",
+    "label": "RTPRx",
+    "id": "1eb53d65-ac83-441c-86f6-9b27df30ef0c",
+    "transport": "urn:x-nmos:transport:rtp",
+    "device_id": "05017e08-b329-45f9-a566-a3f99cc11e4d"
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

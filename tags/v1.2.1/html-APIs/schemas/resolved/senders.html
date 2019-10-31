@@ -1,0 +1,175 @@
+---
+layout: default
+title: Schema senders.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema senders.json</h2>
+<p>
+    <a href="../../schemas/with-refs/senders.html">Show referenced schemas with $ref</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "description": "A list of Sender resources",
+    "items": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "allOf": [
+            {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "description": "Describes the foundations of all NMOS resources",
+                "properties": {
+                    "description": {
+                        "description": "Detailed description of the resource",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "Globally unique identifier for the resource",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                        "type": "string"
+                    },
+                    "label": {
+                        "description": "Freeform string label for the resource",
+                        "type": "string"
+                    },
+                    "tags": {
+                        "description": "Key value set of freeform string tags to aid in filtering resources. Values should be represented as an array of strings. Can be empty.",
+                        "patternProperties": {
+                            "": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "version": {
+                        "description": "String formatted TAI timestamp (<seconds>:<nanoseconds>) indicating precisely when an attribute of the resource last changed",
+                        "pattern": "^[0-9]+:[0-9]+$",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "version",
+                    "label",
+                    "description",
+                    "tags"
+                ],
+                "title": "Base resource",
+                "type": "object"
+            },
+            {
+                "properties": {
+                    "caps": {
+                        "description": "Capabilities of this sender",
+                        "properties": {},
+                        "type": "object"
+                    },
+                    "device_id": {
+                        "description": "Device ID which this Sender forms part of",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                        "type": "string"
+                    },
+                    "flow_id": {
+                        "default": null,
+                        "description": "ID of the Flow currently passing via this Sender",
+                        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "interface_bindings": {
+                        "description": "Binding of Sender egress ports to interfaces on the parent Node. Should contain a single network interface unless a redundancy mechanism such as ST.2022-7 is in use, in which case each 'leg' should have its matching interface listed. Where the redundancy mechanism sends more than one copy of the stream via the same interface, that interface should be listed a corresponding number of times.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "manifest_href": {
+                        "description": "HTTP URL to a file describing how to connect to the Sender (SDP for RTP). The Sender's 'version' attribute should be updated if the contents of this file are modified. This URL may return an HTTP 404 where the 'active' parameter in the 'subscription' object is present and set to false (v1.2+ only).",
+                        "format": "uri",
+                        "type": "string"
+                    },
+                    "subscription": {
+                        "description": "Object containing the 'receiver_id' currently subscribed to (unicast only). Receiver_id should be null on initialisation, or when connected to a non-NMOS unicast Receiver.",
+                        "properties": {
+                            "active": {
+                                "default": false,
+                                "description": "Sender is enabled and configured to stream data to a single Receiver (unicast), or to the network via multicast or a pull-based mechanism",
+                                "type": "boolean"
+                            },
+                            "receiver_id": {
+                                "default": null,
+                                "description": "UUID of the Receiver that this Sender is currently subscribed to",
+                                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "receiver_id",
+                            "active"
+                        ],
+                        "type": "object"
+                    },
+                    "transport": {
+                        "description": "Transport type used by the Sender in URN format",
+                        "format": "uri",
+                        "oneOf": [
+                            {
+                                "enum": [
+                                    "urn:x-nmos:transport:rtp",
+                                    "urn:x-nmos:transport:rtp.ucast",
+                                    "urn:x-nmos:transport:rtp.mcast",
+                                    "urn:x-nmos:transport:dash"
+                                ]
+                            },
+                            {
+                                "not": {
+                                    "pattern": "^urn:x-nmos:"
+                                }
+                            }
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "flow_id",
+                    "transport",
+                    "device_id",
+                    "manifest_href",
+                    "interface_bindings",
+                    "subscription"
+                ],
+                "type": "object"
+            }
+        ],
+        "description": "Describes a sender",
+        "title": "Sender resource",
+        "type": "object"
+    },
+    "minItems": 0,
+    "title": "Collection of Senders",
+    "type": "array",
+    "uniqueItems": true
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

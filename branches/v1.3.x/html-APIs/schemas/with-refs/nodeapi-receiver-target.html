@@ -1,0 +1,43 @@
+---
+layout: default
+title: Schema nodeapi-receiver-target.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema nodeapi-receiver-target.json</h2>
+<p>
+    <a href="../../schemas/resolved/nodeapi-receiver-target.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes the possible requests to a Node's Receiver target resource",
+  "title": "Receiver target resource",
+  "oneOf": [
+    { "$ref": "sender.json" },
+    {
+      "type": "object",
+      "description": "Describes an empty object",
+      "title": "Empty object schema",
+      "additionalProperties": false,
+      "properties": {
+      }
+    }
+  ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

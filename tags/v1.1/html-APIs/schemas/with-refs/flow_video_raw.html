@@ -1,0 +1,98 @@
+---
+layout: default
+title: Schema flow_video_raw.json
+---
+
+<html>
+<meta charset="UTF-8">
+<h2>Schema flow_video_raw.json</h2>
+<p>
+    <a href="../../schemas/resolved/flow_video_raw.html">Resolve referenced schemas</a>
+</p>
+<div id="json-render">
+<script type="text/javascript" src="json-formatter.js"></script>
+<script>
+const formatter = new JSONFormatter.default(
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "description": "Describes a raw Video Flow",
+  "title": "Raw Video Flow resource",
+  "allOf": [
+    { "$ref": "flow_video.json" },
+    {
+      "type": "object",
+      "required": [
+        "media_type",
+        "components"
+      ],
+      "properties": {
+        "media_type": {
+          "description": "Subclassification of the format using IANA assigned media types",
+          "type": "string",
+          "enum": [
+            "video/raw"
+          ]
+        },
+        "components" : {
+          "description" : "Array of objects describing the components",
+          "type" : "array",
+          "minItems": 1,
+          "items" : {
+            "title" : "component",
+            "type" : "object",
+            "required": [
+              "name",
+              "width",
+              "height",
+              "bit_depth"
+            ],
+            "properties" :
+            {
+              "name" : {
+                "description" : "Name of this component",
+                "type" : "string",
+                "enum" : [
+                  "Y",
+                  "Cb",
+                  "Cr",
+                  "I",
+                  "Ct",
+                  "Cp",
+                  "A",
+                  "R",
+                  "G",
+                  "B",
+                  "DepthMap"
+                ]
+              },
+              "width" : {
+                "description" : "Width of this component in pixels",
+                "type" : "integer"
+              },
+              "height" : {
+                "description" : "Height of this component in pixels",
+                "type" : "integer"
+              },
+              "bit_depth" : {
+                "description" : "Number of bits used to describe each sample",
+                "type" : "integer"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
+,
+    3, // Collapse depth
+    {
+        pathsToCollapse: [
+            "properties.id"
+        ]
+    });
+document.getElementsByClassName("content")[0].appendChild(formatter.render());
+</script>
+</div>
+</html>

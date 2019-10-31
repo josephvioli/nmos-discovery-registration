@@ -2,6 +2,8 @@
 
 # {{ site.github.project_tagline }}
 
+[![Build Status](https://travis-ci.com/AMWA-TV/nmos-discovery-registration.svg)](https://travis-ci.com/AMWA-TV/nmos-discovery-registration)
+
 IS-04 is an AMWA NMOS Specification for Discovery and Registration of networked media resources.
 
 It has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initative.
