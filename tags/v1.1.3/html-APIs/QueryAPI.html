@@ -37,7 +37,19 @@ $(document).ready(function() {
             return;
           }
           // format the JSON
-          var formatter = new JSONFormatter.default(el.data('json'), 3);
+          var formatter = new JSONFormatter.default(
+              el.data('json'),
+              3,
+              {
+                 sortPropertiesBy: function(a, b) {
+                   if (a === "title") { return -1; }
+                   if (b === "title") { return 1; }
+                   if (a === "description") { return -1; }
+                   if (b === "description") { return 1; }
+                   return a > b;
+                }
+              }
+             );
           // clear the container
           el.empty();
           // render the formatted json
