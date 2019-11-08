@@ -5,6 +5,7 @@ node_js:
 before_install:
   - sudo apt-get install python3-pip python3-setuptools
 install:
+  - "make distclean"
   - "make build-tools"
 script:
   - "make clean"
