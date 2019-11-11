@@ -1,9 +1,15 @@
-IS-04 is an AMWA NMOS Specification for Discovery and Registration of networked media resources.
+### What does it do?
 
-It has been developed by the [Advanced Media Workflow Association](https://www.amwa.tv) as part of the [Networked Media Open Specifications](https://www.nmos.tv) initative.
+- Allows control and monitoring applications to find the resources on a network
+  - Resources include Nodes, Devices, Senders, Receivers, Sources, Flows...
 
-See [here](https://amwa-tv.github.io/nmos) for an overview of NMOS specifications.
+### Why does it matter?
 
-The formal IS-04 specification is provided in [this GitHub repository](https://github.com/AMWA-TV/nmos-discovery-registration/). These pages provide supporting documentation and HTML renders of the APIs (which are specified in RAML and JSON Schema).
+- Enables automation and reduces manual overhead in setting up networked sytems
+- Essential for dynamic deployment
 
-The documentation and API links immediately below, and the links in the page heading, are for the _most recent approved release_ of the Specification (which may be earlier than what is shown by the default branch on the GitHub repo). Links to [other releases (tags)](tags/) and [other branches](branches/) appear later in the page, or under "VERSIONS..." in the page heading.
+### How does it work?
+
+- Media Nodes locate IS-04 registry using DNS-SD (unicast preferred)
+- Media Nodes register their resource information with HTTP + JSON
+- Applications query with HTTP and/or subscribe with WebSockets

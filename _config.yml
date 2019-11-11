@@ -1,6 +1,9 @@
 # Don't change this
 theme: jekyll-theme-primer
 
+# AMWA ID
+amwa_id: IS-04
+
 # GitHub project
 baseurl: /nmos-discovery-registration
 
