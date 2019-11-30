@@ -63,11 +63,11 @@ Once AMWA has approved a Specification, its documentation and API links will be 
 
 ## APIs for release/tag v1.3
 
-- [NodeAPI](tags/v1.3/html-APIs/NodeAPI.html)
-- [QueryAPI](tags/v1.3/html-APIs/QueryAPI.html)
-- [RegistrationAPI](tags/v1.3/html-APIs/RegistrationAPI.html)
+- [NodeAPI](tags/v1.3/APIs/NodeAPI.html)
+- [QueryAPI](tags/v1.3/APIs/QueryAPI.html)
+- [RegistrationAPI](tags/v1.3/APIs/RegistrationAPI.html)
 
-### [JSON Schemas](tags/v1.3/html-APIs/schemas/)
+### [JSON Schemas](tags/v1.3/APIs/schemas/)
 
 
 ### [Examples](tags/v1.3/examples/)

@@ -24,11 +24,11 @@
 
 ## APIs for release/tag v1.1
 
-- [NodeAPI](html-APIs/NodeAPI.html)
-- [QueryAPI](html-APIs/QueryAPI.html)
-- [RegistrationAPI](html-APIs/RegistrationAPI.html)
+- [NodeAPI](APIs/NodeAPI.html)
+- [QueryAPI](APIs/QueryAPI.html)
+- [RegistrationAPI](APIs/RegistrationAPI.html)
 
-### [JSON Schemas](html-APIs/schemas/)
+### [JSON Schemas](APIs/schemas/)
 
 
 ### [Examples](examples/)
