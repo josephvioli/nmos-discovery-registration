@@ -2,7 +2,7 @@
 
 # {{ site.github.project_tagline }}
 
-[![Build Status](https://travis-ci.com/AMWA-TV/nmos-discovery-registration.svg)](https://travis-ci.com/AMWA-TV/nmos-discovery-registration)
+[![Build Status](https://travis-ci.com/AMWA-TV/nmos-discovery-registration.svg?branch=v1.3.x)](https://travis-ci.com/AMWA-TV/nmos-discovery-registration)
 
 
 
