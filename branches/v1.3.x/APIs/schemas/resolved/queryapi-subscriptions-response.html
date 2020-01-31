@@ -18,11 +18,10 @@ const formatter = new JSONFormatter.default(
     "description": "A list of subscription resources",
     "items": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "description": "A single subscription resource registered with a Query API",
+        "description": "A single subscription to a Query API",
         "properties": {
             "authorization": {
-                "default": false,
-                "description": "This WebSocket requires authorization",
+                "description": "Whether the WebSocket connection requires authorization.",
                 "type": "boolean"
             },
             "id": {
@@ -32,7 +31,7 @@ const formatter = new JSONFormatter.default(
             },
             "max_update_rate_ms": {
                 "default": 100,
-                "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+                "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
                 "type": "integer"
             },
             "params": {
@@ -41,11 +40,11 @@ const formatter = new JSONFormatter.default(
             },
             "persist": {
                 "default": false,
-                "description": "Whether to destroy the socket when the final client disconnects",
+                "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
                 "type": "boolean"
             },
             "resource_path": {
-                "description": "HTTP resource path in the query API which this subscription relates to",
+                "description": "HTTP resource path in the Query API to which this subscription relates",
                 "enum": [
                     "/nodes",
                     "/devices",
@@ -57,7 +56,7 @@ const formatter = new JSONFormatter.default(
                 "type": "string"
             },
             "secure": {
-                "description": "Whether to produce a secure websocket connection (wss://). NB: Default should be 'false' if the API is being presented via HTTP, and 'true' for HTTPS",
+                "description": "Whether a secure WebSocket connection (wss://) is required.",
                 "type": "boolean"
             },
             "ws_href": {
@@ -75,7 +74,7 @@ const formatter = new JSONFormatter.default(
             "resource_path",
             "params"
         ],
-        "title": "Subscription resource",
+        "title": "Subscription",
         "type": "object"
     },
     "minItems": 0,

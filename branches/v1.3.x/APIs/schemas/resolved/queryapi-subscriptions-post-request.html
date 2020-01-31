@@ -15,15 +15,15 @@ title: Schema queryapi-subscriptions-post-request.json
 const formatter = new JSONFormatter.default(
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "Register a new resource or update an existing resource",
+    "description": "Create a new subscription to a Query API",
     "properties": {
         "authorization": {
-            "description": "This WebSocket requires authorization",
+            "description": "Whether the WebSocket connection requires authorization. NB: Default should be 'true' if the API requires authorization, and 'false' otherwise.",
             "type": "boolean"
         },
         "max_update_rate_ms": {
             "default": 100,
-            "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+            "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
             "type": "integer"
         },
         "params": {
@@ -32,11 +32,11 @@ const formatter = new JSONFormatter.default(
         },
         "persist": {
             "default": false,
-            "description": "Whether to destroy the socket when the final client disconnects",
+            "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
             "type": "boolean"
         },
         "resource_path": {
-            "description": "HTTP resource path in the query API which this subscription relates to",
+            "description": "HTTP resource path in the Query API to which this subscription relates",
             "enum": [
                 "/nodes",
                 "/devices",
@@ -48,7 +48,7 @@ const formatter = new JSONFormatter.default(
             "type": "string"
         },
         "secure": {
-            "description": "Whether to produce a secure websocket connection (wss://)",
+            "description": "Whether a secure WebSocket connection (wss://) is required. NB: Default should be 'true' if the API is being presented via HTTPS, and 'false' otherwise.",
             "type": "boolean"
         }
     },
@@ -58,7 +58,7 @@ const formatter = new JSONFormatter.default(
         "resource_path",
         "params"
     ],
-    "title": "Resource registration",
+    "title": "Subscription creation",
     "type": "object"
 }
 ,

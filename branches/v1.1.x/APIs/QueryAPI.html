@@ -6391,11 +6391,11 @@ pre code {
 }
 </code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="subscriptions" class="panel-title">Subscriptions</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_subscriptions"><span class="parent"></span>/subscriptions</a> <span class="methods"><a href="#subscriptions_post"><span class="badge badge_post">post</span></a> <a href="#subscriptions_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_subscriptions" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#subscriptions_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Create a websocket subscription to an API resource</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#subscriptions_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>List active connections to websockets providing real-time updates on resource changes (for debug use only)</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="subscriptions_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/subscriptions</h4></div><div class="modal-body"><div class="alert alert-info"><p>Create a websocket subscription to an API resource</p></div><ul class="nav nav-tabs"><li class="active"><a href="#subscriptions_post_request" data-toggle="tab">Request</a></li><li><a href="#subscriptions_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="subscriptions_post_request"><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "Register a new resource or update an existing resource",
+    "description": "Create a new subscription to a Query API",
     "properties": {
         "max_update_rate_ms": {
             "default": 100,
-            "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+            "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
             "type": "integer"
         },
         "params": {
@@ -6404,11 +6404,11 @@ pre code {
         },
         "persist": {
             "default": false,
-            "description": "Whether to destroy the socket when the final client disconnects",
+            "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
             "type": "boolean"
         },
         "resource_path": {
-            "description": "HTTP resource path in the query API which this subscription relates to",
+            "description": "HTTP resource path in the Query API to which this subscription relates",
             "enum": [
                 "/nodes",
                 "/devices",
@@ -6420,7 +6420,7 @@ pre code {
             "type": "string"
         },
         "secure": {
-            "description": "Whether to produce a secure websocket connection (wss://). NB: Default should be &#39;false&#39; if the API is being presented via HTTP, and &#39;true&#39; for HTTPS",
+            "description": "Whether a secure WebSocket connection (wss://) is required. NB: Default should be &#39;true&#39; if the API is being presented via HTTPS, and &#39;false&#39; otherwise.",
             "type": "boolean"
         }
     },
@@ -6430,7 +6430,7 @@ pre code {
         "resource_path",
         "params"
     ],
-    "title": "Resource registration",
+    "title": "Subscription creation",
     "type": "object"
 }
 </code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
@@ -6444,7 +6444,7 @@ pre code {
 }
 </code></pre></div></div><div class="tab-pane" id="subscriptions_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "A single subscription resource registered with a Query API",
+    "description": "A single subscription to a Query API",
     "properties": {
         "id": {
             "description": "Globally unique identifier for the subscription",
@@ -6453,7 +6453,7 @@ pre code {
         },
         "max_update_rate_ms": {
             "default": 100,
-            "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+            "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
             "type": "integer"
         },
         "params": {
@@ -6462,11 +6462,11 @@ pre code {
         },
         "persist": {
             "default": false,
-            "description": "Whether to destroy the socket when the final client disconnects",
+            "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
             "type": "boolean"
         },
         "resource_path": {
-            "description": "HTTP resource path in the query API which this subscription relates to",
+            "description": "HTTP resource path in the Query API to which this subscription relates",
             "enum": [
                 "/nodes",
                 "/devices",
@@ -6478,7 +6478,7 @@ pre code {
             "type": "string"
         },
         "secure": {
-            "description": "Whether to produce a secure websocket connection (wss://). NB: Default should be &#39;false&#39; if the API is being presented via HTTP, and &#39;true&#39; for HTTPS",
+            "description": "Whether a secure WebSocket connection (wss://) is required.",
             "type": "boolean"
         },
         "ws_href": {
@@ -6496,7 +6496,7 @@ pre code {
         "resource_path",
         "params"
     ],
-    "title": "Subscription resource",
+    "title": "Subscription",
     "type": "object"
 }
 </code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
@@ -6512,7 +6512,7 @@ pre code {
 }
 </code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/201" target="_blank">201</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "A single subscription resource registered with a Query API",
+    "description": "A single subscription to a Query API",
     "properties": {
         "id": {
             "description": "Globally unique identifier for the subscription",
@@ -6521,7 +6521,7 @@ pre code {
         },
         "max_update_rate_ms": {
             "default": 100,
-            "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+            "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
             "type": "integer"
         },
         "params": {
@@ -6530,11 +6530,11 @@ pre code {
         },
         "persist": {
             "default": false,
-            "description": "Whether to destroy the socket when the final client disconnects",
+            "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
             "type": "boolean"
         },
         "resource_path": {
-            "description": "HTTP resource path in the query API which this subscription relates to",
+            "description": "HTTP resource path in the Query API to which this subscription relates",
             "enum": [
                 "/nodes",
                 "/devices",
@@ -6546,7 +6546,7 @@ pre code {
             "type": "string"
         },
         "secure": {
-            "description": "Whether to produce a secure websocket connection (wss://). NB: Default should be &#39;false&#39; if the API is being presented via HTTP, and &#39;true&#39; for HTTPS",
+            "description": "Whether a secure WebSocket connection (wss://) is required.",
             "type": "boolean"
         },
         "ws_href": {
@@ -6564,7 +6564,7 @@ pre code {
         "resource_path",
         "params"
     ],
-    "title": "Subscription resource",
+    "title": "Subscription",
     "type": "object"
 }
 </code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
@@ -6643,7 +6643,7 @@ pre code {
     "description": "A list of subscription resources",
     "items": {
         "$schema": "http://json-schema.org/draft-04/schema#",
-        "description": "A single subscription resource registered with a Query API",
+        "description": "A single subscription to a Query API",
         "properties": {
             "id": {
                 "description": "Globally unique identifier for the subscription",
@@ -6652,7 +6652,7 @@ pre code {
             },
             "max_update_rate_ms": {
                 "default": 100,
-                "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+                "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
                 "type": "integer"
             },
             "params": {
@@ -6661,11 +6661,11 @@ pre code {
             },
             "persist": {
                 "default": false,
-                "description": "Whether to destroy the socket when the final client disconnects",
+                "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
                 "type": "boolean"
             },
             "resource_path": {
-                "description": "HTTP resource path in the query API which this subscription relates to",
+                "description": "HTTP resource path in the Query API to which this subscription relates",
                 "enum": [
                     "/nodes",
                     "/devices",
@@ -6677,7 +6677,7 @@ pre code {
                 "type": "string"
             },
             "secure": {
-                "description": "Whether to produce a secure websocket connection (wss://). NB: Default should be &#39;false&#39; if the API is being presented via HTTP, and &#39;true&#39; for HTTPS",
+                "description": "Whether a secure WebSocket connection (wss://) is required.",
                 "type": "boolean"
             },
             "ws_href": {
@@ -6695,7 +6695,7 @@ pre code {
             "resource_path",
             "params"
         ],
-        "title": "Subscription resource",
+        "title": "Subscription",
         "type": "object"
     },
     "minItems": 0,
@@ -6743,7 +6743,7 @@ pre code {
 ]
 </code></pre></div></div></div></div></div></div></div></div><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_subscriptions__subscriptionid_"><span class="parent">/subscriptions</span>/{subscriptionId}</a> <span class="methods"><a href="#subscriptions__subscriptionid__get"><span class="badge badge_get">get</span></a> <a href="#subscriptions__subscriptionid__delete"><span class="badge badge_delete">delete</span></a></span></h4></div><div id="panel_subscriptions__subscriptionid_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#subscriptions__subscriptionid__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a single subscription (for debug use only)</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#subscriptions__subscriptionid__delete'" class="list-group-item"><span class="badge badge_delete">delete</span><div class="method_description"><p>Delete a single subscription</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="subscriptions__subscriptionid__get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/subscriptions</span>/{subscriptionId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a single subscription (for debug use only)</p></div><ul class="nav nav-tabs"><li class="active"><a href="#subscriptions__subscriptionid__get_request" data-toggle="tab">Request</a></li><li><a href="#subscriptions__subscriptionid__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="subscriptions__subscriptionid__get_request"><h3>URI Parameters</h3><ul><li><strong>subscriptionId</strong>: <em><span class="required">required</span>(string - pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$)</em></li></ul></div><div class="tab-pane" id="subscriptions__subscriptionid__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>:</p><pre><code>{
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "description": "A single subscription resource registered with a Query API",
+    "description": "A single subscription to a Query API",
     "properties": {
         "id": {
             "description": "Globally unique identifier for the subscription",
@@ -6752,7 +6752,7 @@ pre code {
         },
         "max_update_rate_ms": {
             "default": 100,
-            "description": "Rate limiting for messages. Sets the minimum interval between consecutive websocket messages",
+            "description": "Rate limiting for messages. Sets the minimum interval (in milliseconds) between consecutive WebSocket messages.",
             "type": "integer"
         },
         "params": {
@@ -6761,11 +6761,11 @@ pre code {
         },
         "persist": {
             "default": false,
-            "description": "Whether to destroy the socket when the final client disconnects",
+            "description": "Whether the API will retain or destroy the subscription after the final client disconnects",
             "type": "boolean"
         },
         "resource_path": {
-            "description": "HTTP resource path in the query API which this subscription relates to",
+            "description": "HTTP resource path in the Query API to which this subscription relates",
             "enum": [
                 "/nodes",
                 "/devices",
@@ -6777,7 +6777,7 @@ pre code {
             "type": "string"
         },
         "secure": {
-            "description": "Whether to produce a secure websocket connection (wss://). NB: Default should be &#39;false&#39; if the API is being presented via HTTP, and &#39;true&#39; for HTTPS",
+            "description": "Whether a secure WebSocket connection (wss://) is required.",
             "type": "boolean"
         },
         "ws_href": {
@@ -6795,7 +6795,7 @@ pre code {
         "resource_path",
         "params"
     ],
-    "title": "Subscription resource",
+    "title": "Subscription",
     "type": "object"
 }
 </code></pre><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
