@@ -2,8 +2,9 @@
 
 # {{ site.github.project_tagline }}
 
-[![Build Status](https://travis-ci.com/AMWA-TV/nmos-discovery-registration.svg?branch=v1.3.x)](https://travis-ci.com/AMWA-TV/nmos-discovery-registration)
-
+| Repository | Default Branch | Lint (default) | Render (all) |
+| --- | --- | --- | --- |
+| [nmos-discovery-registration](https://github.com/AMWA-TV/nmos-discovery-registration) | v1.3.x | <a href="https://travis-ci.com/AMWA-TV/nmos-discovery-registration?branch=v1.3.x"><img src="https://travis-ci.com/AMWA-TV/nmos-discovery-registration.svg?branch=v1.3.x" width="100"/></a> | <a href="https://travis-ci.com/AMWA-TV/nmos-discovery-registration?branch=gh-pages"><img src="https://travis-ci.com/AMWA-TV/nmos-discovery-registration.svg?branch=gh-pages" width="100"/></a> |
 
 
 ---
