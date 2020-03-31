@@ -38,9 +38,7 @@ See [here](https://amwa-tv.github.io/nmos) for an overview of NMOS specification
 
 The formal specification is provided in [this GitHub repository](https://github.com/AMWA-TV/nmos-discovery-registration). These pages provide supporting documentation and HTML renders of the APIs (which are specified in RAML and JSON Schema).
 
-The documentation and API links immediately below, and the links in the page heading, are for an example development branch. Links to [other releases (tags)](tags/) and [other branches](branches/) appear later in the page, or under "VERSIONS..." in the page heading.
-
-Once AMWA has approved a Specification, its documentation and API links will be for the _most recent approved release_ (which may be earlier than what is shown by the default branch on the GitHub repo).
+The links to documentation, API and examples below and for DOCS and SPEC in the page menu bar are for this release (tag) or branch: **tags/v1.3**. Links to [other releases (tags)](tags/) and [other branches](branches/) appear later in the page, or in the VERSIONS menu.
 
 ## Documentation for release/tag v1.3
 
