@@ -19,7 +19,7 @@
 
 ### Why does it matter?
 
-- Enables automation and reduces manual overhead in setting up networked sytems
+- Enables automation and reduces manual overhead in setting up networked systems
 - Essential for dynamic deployment
 
 ### How does it work?
